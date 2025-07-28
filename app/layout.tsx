@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { zenMaruGothicFont, zenKakuGothicNewFont } from './fonts';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: 'キャリエモン - プロのキャリアサポートが受けられる！',
@@ -20,6 +21,7 @@ export default function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId="G-1ZZQ32CNXD" />
     </html>
   );
 }
