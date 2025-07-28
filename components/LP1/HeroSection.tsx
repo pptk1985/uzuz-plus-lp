@@ -25,7 +25,7 @@ const HeroSection: React.FC<HeroProps> = ({ setIndex }) => {
           {/* LeftSide */}
           <div className="animate-fade-right">
             <h1 className="font-zen-maru max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
-              あなたの就職・転職は "キャリエモン" にお任せ！
+              あなたの就職・転職は &ldquo;キャリエモン&rdquo; にお任せ！
             </h1>
           </div>
           {/* RightSide */}
