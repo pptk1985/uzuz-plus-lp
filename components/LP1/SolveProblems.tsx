@@ -26,27 +26,27 @@ const iconMap: { [key: string]: React.JSX.Element } = {
 const funFactsData = [
   {
     iconName: 'aperture',
-    title: '施工管理の中にもホワイトってあるの？',
+    title: '就職活動の進め方が分からない',
   },
   {
     iconName: 'aperture',
-    title: 'どうやってホワイトを見抜けばいいの？',
+    title: '転職活動を効率よく進めたい',
   },
   {
     iconName: 'aperture',
-    title: 'しっかり休める職場で働きたい',
+    title: '自己分析がうまくできない',
   },
   {
     iconName: 'aperture',
-    title: '残業は控えめの企業がいい',
+    title: '自分に合う仕事や会社が分からない',
+  },
+  {
+    iconName: 'aperture',
+    title: '面接で失敗したくない',
   },
   {
     iconName: 'aperture',
     title: '未経験で就職/転職できるか不安',
-  },
-  {
-    iconName: 'aperture',
-    title: '面接が不安',
   },
 ];
 

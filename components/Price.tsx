@@ -27,7 +27,7 @@ const Price: React.FC<PriceProps> = ({ setIndex }) => {
           {/* LefttSide */}
           <div>
             <h2 className="max-w-xl mx-auto text-gray-900 text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight [text-shadow:_2px_3px_0_rgb(255_255_255_/_100%)] mb-4">
-              UZUZは完全無料のキャリアサービスです！
+              キャリエモンは完全無料のキャリアサービスです！
             </h2>
             <div className="bg-white/65 px-4 py-3 sm:px-5 sm:py-4 rounded-2xl">
               <div className="font-zen-maru text-sm text-slate-900 font-bold sm:text-lg [text-shadow:_1px_2px_0_rgb(255_255_255_/_100%)]">

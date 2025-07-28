@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Play, Smile } from 'lucide-react';
-import person from '@/public/images/uzuzlp/2288432943_600x600.png';
-import BgImg from '@/public/images/uzuzlp/1370877203_1200x800.png';
+import person from '@/public/images/careeremonimg/2382160085_600x600.png';
+import BgImg from '@/public/images/careeremonimg/hero_bg_1200x800.png';
 
 interface HeroProps {
   setIndex?: (index: number) => void;
@@ -24,10 +24,8 @@ const HeroSection: React.FC<HeroProps> = ({ setIndex }) => {
           {/* コンテンツ */}
           {/* LeftSide */}
           <div className="animate-fade-right">
-            <h1 className="max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
-              施工管理でも働きやすさを諦めない！
-              <br />
-              本当にホワイトな施工管理会社選びはUZUZで。
+            <h1 className="font-zen-maru max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
+              あなたの就職・転職は "キャリエモン" にお任せ！
             </h1>
           </div>
           {/* RightSide */}
@@ -46,7 +44,11 @@ const HeroSection: React.FC<HeroProps> = ({ setIndex }) => {
           <div>
             <div className="bg-white/65 px-4 py-3 sm:px-5 sm:py-4 rounded-2xl">
               <div className="font-zen-maru text-sm text-slate-900 font-bold sm:text-lg [text-shadow:_1px_2px_0_rgb(255_255_255_/_100%)]">
-                「未経験OK」「完全土日祝休み」「残業少なめ」など、本当に働きやすい施工管理へ。ブラックな現場を避けるための最短ルートは、UZUZにあります。
+                キャリエモンのキャリアサポートはプロが「就職・転職相談」や「求人紹介」「応募書類添削」などを
+                <span className="underline decoration-2 underline-offset-2 decoration-amber-300 px-0.5">
+                  完全無料
+                </span>
+                で支援してくれるサービスです。就活や転職で悩んでいる人は気軽に使ってみよう！
               </div>
             </div>
           </div>

@@ -23,20 +23,19 @@ import Image from 'next/image';
 
 const feedbacskData = [
   {
-    title: '未経験からホワイト施工管理職へ転職成功',
-    title_sub:
-      'しっかり手に職がつく仕事につけて、ワークライフバランスも保てていて満足です！',
+    title: '新卒未経験からITエンジニアへ',
+    title_sub: '新卒未経験からITエンジニアに！日々の成長を実感しています。',
     image: Img2,
-    name: 'H.Tさん 25歳',
+    name: 'K.Cさん 28歳',
     designation: (
       <>
-        200<span className="text-sm mx-px">⇒</span>380
+        0<span className="text-sm mx-px">⇒</span>350
       </>
     ),
-    occupation: 'フリーター',
+    occupation: 'なし',
     feedbackText:
-      '施工管理にはブラックな会社が多いとネットに出ていて不安でしたが、手に職がつく点には非常に魅力を感じていました。UZUZさんはホワイトな企業を厳選して紹介してくれますし、危ない会社の情報も教えてもらえたことで納得のいく就職活動ができました。',
-    comment: '残業：20時間/月',
+      'キャリエモンは登録したエージェントの中で、サポートが一番手厚かったです。選考前には会社ごとの志望動機や自己PR、空白期間の伝え方など細かくアドバイスしてくれました。結果、就活に失敗し未経験だった私も１か月で内定獲得。現在は業務システムの開発に携わる毎日です。',
+    // comment: '残業：20時間/月',
     rating: (
       <div className="flex flex-wrap">
         <Star
@@ -68,64 +67,19 @@ const feedbacskData = [
     ),
   },
   {
-    title: '理想の土日休みの仕事へ転職成功',
-    title_sub: '土日休みも増えて、プライベートが充実しました！',
-    image: Img4,
-    name: 'A.Kさん 29歳',
-    designation: (
-      <>
-        220<span className="text-sm mx-px">⇒</span>400
-      </>
-    ),
-    occupation: '居酒屋アルバイト',
-    feedbackText:
-      '20代最後の年だからこそ正社員になりたいという気持ちがありましたが、ブラックには行きたいと考えていました。もともと建設業界はハードワークだと思いこんでいましたが、UZUZさんが紹介してくれた企業は休日もしっかりしていて、研修制度も充実。面接対策や履歴書の書き方など細かくサポートいただいたおかげで、安心して転職活動を進められました。実際に入社してみて、仕事だけでなくプライベートの時間も大事にできる環境に大満足です。',
-    comment: '残業：30時間/月',
-    rating: (
-      <div className="flex flex-wrap">
-        <Star
-          fill="#fcd34d"
-          strokeWidth={0}
-          className="w-5 h-5  sm:w-7 sm:h-7"
-        />
-        <Star
-          fill="#fcd34d"
-          strokeWidth={0}
-          className="w-5 h-5  sm:w-7 sm:h-7"
-        />
-        <Star
-          fill="#fcd34d"
-          strokeWidth={0}
-          className="w-5 h-5  sm:w-7 sm:h-7"
-        />
-        <Star
-          fill="#fcd34d"
-          strokeWidth={0}
-          className="w-5 h-5  sm:w-7 sm:h-7"
-        />
-        <Star
-          fill="#fcd34d"
-          strokeWidth={0}
-          className="w-5 h-5  sm:w-7 sm:h-7"
-        />
-      </div>
-    ),
-  },
-  {
-    title: '他業種からの転職で収入UP＆ホワイト環境',
-    title_sub:
-      '体力には自信がありましたが、ブラック企業は避けたいと思っていました',
+    title: '公務員からWebマーケターへ',
+    title_sub: '自分の経験を活かした、希望の転職が実現できました！',
     image: Img3,
-    name: 'Y.Mさん 27歳',
+    name: 'U.Sさん 29歳',
     designation: (
       <>
-        230<span className="text-sm mx-px">⇒</span>380
+        420<span className="text-sm mx-px">⇒</span>520
       </>
     ),
-    occupation: 'スポーツインストラクター',
+    occupation: '公務員',
     feedbackText:
-      '前職ではやりがいはあったものの、収入面や将来性に不安がありました。建設業は厳しいイメージがありましたが、UZUZさんが紹介してくれた企業は残業が少なく、福利厚生も手厚いホワイト企業。面接前の打ち合わせでは「どんな環境なら続けられるか」を一緒に考えてくれたので、安心して転職に踏み切れました。年収アップもできて、本当に感謝しています。',
-    comment: '残業：25時間/月',
+      '市役所を退職後オーストラリアに留学。次の会社には"語学力が活かせる""長期的に活躍できるスキルが身に付く"ことを求めていたのですが、キャリエモンが紹介してくれたのはまさにその希望が叶う求人でした。今では更に年収が上がり（720万円）その点もうれしい限りです。',
+    // comment: '残業：30時間/月',
     rating: (
       <div className="flex flex-wrap">
         <Star
@@ -157,20 +111,65 @@ const feedbacskData = [
     ),
   },
   {
-    title: '女性・文系出身でもホワイト施工管理職へ',
+    title: '保育士から人材会社ソリューション営業へ',
+    title_sub:
+      '３社退職した私でも残業時間が減り、年収も200万円以上アップしました！',
+    image: Img4,
+    name: 'S.Aさん 28歳',
+    designation: (
+      <>
+        220<span className="text-sm mx-px">⇒</span>500
+      </>
+    ),
+    occupation: '保育士',
+    feedbackText:
+      '職歴が３社あったせいか、利用前は書類選考で落ちることが多くて。でもキャリエモンで教えてもらった退職理由の伝え方を実践した結果、無事転職することができました。在宅勤務が可能な環境で年収も200万以上アップ、残業時間も減ったので毎日が充実しています。',
+    // comment: '残業：25時間/月',
+    rating: (
+      <div className="flex flex-wrap">
+        <Star
+          fill="#fcd34d"
+          strokeWidth={0}
+          className="w-5 h-5  sm:w-7 sm:h-7"
+        />
+        <Star
+          fill="#fcd34d"
+          strokeWidth={0}
+          className="w-5 h-5  sm:w-7 sm:h-7"
+        />
+        <Star
+          fill="#fcd34d"
+          strokeWidth={0}
+          className="w-5 h-5  sm:w-7 sm:h-7"
+        />
+        <Star
+          fill="#fcd34d"
+          strokeWidth={0}
+          className="w-5 h-5  sm:w-7 sm:h-7"
+        />
+        <Star
+          fill="#fcd34d"
+          strokeWidth={0}
+          className="w-5 h-5  sm:w-7 sm:h-7"
+        />
+      </div>
+    ),
+  },
+  {
+    title: 'コールセンターから事務兼CADオペレーターへ',
     title_sub:
       '女性でも働きやすい現場環境が整っていて、キャリアアップできそうです！',
     image: Img1,
-    name: 'R.Nさん 26歳',
+    name: 'N.Mさん 27歳',
     designation: (
       <>
-        250<span className="text-sm mx-px">⇒</span>350
+        230<span className="text-sm mx-px">⇒</span>360
       </>
     ),
-    occupation: '事務派遣社員',
+    occupation: 'コールセンターオペレーター',
     feedbackText:
-      '建設業界は男性社会のイメージが強く、事務経験しかない私には難しいと思っていました。ところがUZUZさんに相談すると、女性の施工管理職が活躍している企業をいくつも紹介してもらい驚きました。残業削減に力を入れている会社なので、体力面でも不安が少なく、将来のキャリアアップも見据えられるのが嬉しいポイントです。',
-    comment: '残業：15時間/月',
+      '手に職がついていない自分に焦りを感じ、コールセンターの派遣スタッフから転職を決意。キャリエモンでは面接対策をはじめ就活の進め方など親身に相談に乗ってもらえたので、３週間で内定を獲得できました。希望だった「専門性の高い業務」に携わることができ大満足です。',
+    // comment: '残業：15時間/月',
     rating: (
       <div className="flex flex-wrap">
         <Star
@@ -225,7 +224,7 @@ const Feedbacks: React.FC = () => {
                   key={i}
                   className="rounded-lg px-3 py-1.5 sm:p-4 bg-white/75 shadow-md"
                 >
-                  <div className="grid grid-cols-[1fr_2.5fr] gap-x-2 gap-y-0.5 sm:gap-x-3 sm:gap-y-2 justify-center items-center sm:items-start">
+                  <div className="grid grid-cols-[1fr_2.5fr] gap-x-2 gap-y-0.5 sm:gap-x-3 sm:gap-y-2 justify-center items-center">
                     <div className="col-span-2 mx-auto drop-shadow-xs">
                       {value.rating}
                     </div>
@@ -249,7 +248,7 @@ const Feedbacks: React.FC = () => {
                       <div className="inline-flex">
                         前職：{value.occupation}
                       </div>
-                      <div className="col-span-2">{value.comment}</div>
+                      {/* <div className="col-span-2">{value.comment}</div> */}
                     </div>
                     <div className="col-span-2 px-0 py-0 sm:px-3 sm:py-2.5 rounded-md bg-none sm:bg-white/50">
                       <h3 className="font-bold text-center font-zen-maru text-xs sm:text-sm">
@@ -295,7 +294,7 @@ const Feedbacks: React.FC = () => {
                             </DialogDescription>
                           </DialogHeader>
                           <div className="text-sm">{value.feedbackText}</div>
-                          <div className="flex gap-5 justify-center items-start">
+                          <div className="flex gap-5 justify-center items-center">
                             <div>
                               <Image
                                 src={value.image.src}
@@ -319,7 +318,7 @@ const Feedbacks: React.FC = () => {
                               <div className="inline-flex">
                                 前職：{value.occupation}
                               </div>
-                              <div className="col-span-2">{value.comment}</div>
+                              {/* <div className="col-span-2">{value.comment}</div> */}
                             </div>
                           </div>
                         </DialogContent>

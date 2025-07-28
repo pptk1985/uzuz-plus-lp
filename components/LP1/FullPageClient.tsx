@@ -9,11 +9,12 @@ import DotNavigation from '../DotNavigation';
 import HeroSection from './HeroSection';
 import RegistrationFormCta from '@/components/RegistrationFormCta';
 import SolveProblems from './SolveProblems';
-import WhiteCompany from './WhiteCompany';
+// import WhiteCompany from './WhiteCompany';
 import Feedbacks from './Feedbacks';
-import Attractiveness from './Attractiveness';
+// import Attractiveness from './Attractiveness';
 import Osusume1 from './Osusume1';
 import Osusume2 from './Osusume2';
+import Companies from './Companies';
 import Price from '@/components/Price';
 import SupportFlow from '@/components/SupportFlow';
 import FAQ from './FAQ';
@@ -23,11 +24,12 @@ const sectionComponents: Section[] = [
   { id: 'hero', component: HeroSection },
   { id: 'registration', component: RegistrationFormCta },
   { id: 'solve', component: SolveProblems },
-  { id: 'white', component: WhiteCompany },
+  // { id: 'white', component: WhiteCompany },
   { id: 'feedback', component: Feedbacks },
-  { id: 'attractive', component: Attractiveness },
+  // { id: 'attractive', component: Attractiveness },
   { id: 'osusume1', component: Osusume1 },
   { id: 'osusume2', component: Osusume2 },
+  { id: 'company', component: Companies },
   { id: 'price', component: Price },
   { id: 'flow', component: SupportFlow },
   { id: 'faq', component: FAQ },

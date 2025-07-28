@@ -41,7 +41,7 @@ const RegistrationForm: React.FC = () => {
     const selectedButton = buttons.find((item) => item.value === status);
     const statusParam = selectedButton ? selectedButton.statusParam : '0';
 
-    const redirectUrl = `https://career-emon.com/ref/c/ce_media_lp-form/media/direct-form/entry/?source=quick&c=${statusParam}`;
+    const redirectUrl = `https://career-emon.com/ref/c/ce_media_lp-form/direct-form/entry/?source=quick&c=${statusParam}`;
 
     // 外部URLへのリダイレクトにはwindow.location.hrefを使用
     window.location.href = redirectUrl;
@@ -104,8 +104,8 @@ const RegistrationForm: React.FC = () => {
         <Separator />
         <div className="">
           <div className="font-zen-maru text-xs sm:text-sm text-muted-foreground my-1">
-            『本当にホワイトな会社』選びはUZUZで！
-            UZUZではブラック企業を排除する仕組みが整っているので、安心してご利用いただけます。
+            『本当にホワイトな会社』選びはキャリエモンで！
+            キャリエモンではブラック企業を排除する仕組みが整っているので、安心してご利用いただけます。
           </div>
           <div className="text-center">
             <span className="font-bold text-2xl sm:text-3xl text-amber-300 font-zen-maru [text-shadow:_1px_2px_0_rgb(0_0_0_/_100%)]">

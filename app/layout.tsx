@@ -3,8 +3,9 @@ import './globals.css';
 import { zenMaruGothicFont, zenKakuGothicNewFont } from './fonts';
 
 export const metadata: Metadata = {
-  title: 'UZUZ LP Swipe',
-  description: 'UZUZ LP スワイプアプリケーション',
+  title: 'キャリエモン - プロのキャリアサポートが受けられる！',
+  description:
+    '「キャリエモン」はプロが無料で相談に乗ってくれる、日本最大級のキャリア相談サイトです。また、キャリアサポートなどのサービスも行っています。',
 };
 
 export default function RootLayout({

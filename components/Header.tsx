@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Img from '@/public/images/logo_600x600.png';
+import Logo from '@/public/images/careeremonimg/logo.png';
 import Image from 'next/image';
 
 interface NavItem {
@@ -28,10 +28,10 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
   }, []);
 
   const navItems: NavItem[] = [
-    { name: '利用者の声', href: '#feedback', index: 4 },
-    { name: '特徴', href: '#osusume1', index: 6 },
-    { name: '料金', href: '#price', index: 8 },
-    { name: 'サポートの流れ', href: '#flow', index: 9 },
+    { name: '利用者の声', href: '#feedback', index: 3 },
+    { name: '特徴', href: '#osusume1', index: 4 },
+    { name: '料金', href: '#price', index: 7 },
+    { name: 'サポートの流れ', href: '#flow', index: 8 },
   ];
 
   const handleMenuToggle = (): void => {
@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-amber-400 shadow-lg' : 'bg-amber-400/75'
+        isScrolled ? 'bg-amber-300 shadow-lg' : 'bg-amber-300/75'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,16 +68,16 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
               }}
             >
               <Image
-                src={Img.src}
-                alt="UZUZのキャリアサポート"
+                src={Logo.src}
+                alt="キャリエモンのキャリアサポート"
                 width={200}
                 height={200}
-                className="w-20 mx-auto [filter:drop-shadow(2px_1px_0px_#fff)]"
+                className="w-28 sm:w-40 mx-auto [filter:drop-shadow(1px_1px_0px_#fff)]"
               />
             </Link>
           </div>
 
-          <nav className="hidden sm:flex space-x-8">
+          <nav className="hidden sm:flex space-x-2">
             {navItems.map((item: NavItem) => (
               <Link
                 key={item.name}
@@ -94,20 +94,20 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
           <div className="hidden sm:flex items-center">
             <Button
               variant="outline"
-              className="animate-bounce font-bold font-zen-maru relative top-1"
+              className="animate-bounce font-bold font-zen-maru relative top-1 shadow-md"
               onClick={handleRegistrationClick}
             >
-              キャリア相談はこちら
+              ご利用の登録はコチラ
             </Button>
           </div>
 
           <div className="flex sm:hidden items-center">
             <Button
               variant="outline"
-              className="font-bold font-zen-maru"
+              className="font-bold font-zen-maru shadow-md"
               onClick={handleRegistrationClick}
             >
-              キャリア相談はこちら
+              ご利用の登録はコチラ
             </Button>
           </div>
 
@@ -143,13 +143,13 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
                 {item.name}
               </a>
             ))}
-            <Button
+            {/* <Button
               variant="outline"
               className="w-full font-bold font-zen-maru"
               onClick={handleRegistrationClick}
             >
               キャリア相談はこちら
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

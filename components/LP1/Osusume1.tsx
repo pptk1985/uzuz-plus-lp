@@ -8,50 +8,29 @@ import Image from 'next/image';
 
 const funFactsData = [
   {
-    title: '150社ほどの未経験も可の施工管理会社との取引実績',
+    title: '採用市場を知り尽くしたプロが専任でつく',
     contents: [
       {
-        heading: '各社の研修、福利厚生、残業、休日を把握',
+        heading: '面談ではあなたの希望・こだわり・適正を考慮',
+        description: '',
+      },
+      {
+        heading: '希望が叶う求人をご紹介',
+        description: '',
+      },
+      {
+        heading: '「どんな仕事が向いているかわからない…」という方でも安心',
         description: '',
       },
       {
         heading:
-          '「まったり働きたい」「稼ぎたい」など多様な希望が叶う求人をご紹介',
-        description: '',
-      },
-      {
-        heading: '入社した方の声もあるので、リアルな情報を提供',
-        description: '',
-      },
-      {
-        heading: 'ブラックな企業だとわかったら紹介を停止',
+          '面談後は「そんな仕事あるんだ！それならやってみたいかも」と前向きな気持ちになる方多数',
         description: '',
       },
     ],
   },
   {
-    title: 'ホワイト施工管理を"見抜く"独自の基準・ノウハウ',
-    contents: [
-      {
-        heading: '就職後の定着率96%',
-        description: '',
-      },
-      {
-        heading: '6万人の求職者に聞いてきたブラック企業リストあり',
-        description: '',
-      },
-      {
-        heading: '今、検討している会社がブラックかを診断',
-        description: '',
-      },
-      {
-        heading: '入社後のアンケートもあるので、最新の声を紹介',
-        description: '',
-      },
-    ],
-  },
-  {
-    title: '手厚いキャリアサポート',
+    title: 'あなたに合わせたオーダーメイド型の就業サポート',
     contents: [
       {
         heading: '完全オーダーメイドの面接対策',
@@ -61,7 +40,29 @@ const funFactsData = [
       {
         heading: '充実した就職支援コンテンツ',
         description:
-          'UZUZのYouTube「ひろさんチャンネル」の登録者数は７万人以上。創業以来培ってきた内定獲得ノウハウを多数発信しており、高評価率は97%にも上ります。',
+          'キャリエモンの運営会社であるUZUZのYouTube「ひろさんチャンネル」の登録者数は７万人以上。創業以来培ってきた内定獲得ノウハウを多数発信しており、高評価率は97%にも上ります。',
+      },
+    ],
+  },
+  {
+    title: '優良企業多数！ブラック企業は徹底排除',
+    contents: [
+      {
+        heading: 'ポテンシャルを重視し、20代の若手を積極採用している企業',
+        description: '',
+      },
+      {
+        heading:
+          '法人サービスを扱っているため知名度は高くないものの、業績好調な優良企業',
+        description: '',
+      },
+      {
+        heading: '今後さらなる発展が期待できる注目のベンチャー企業',
+        description: '',
+      },
+      {
+        heading: '事業拡大に伴い、若手を採用したいと考えている大手企業',
+        description: '',
       },
     ],
   },
@@ -82,7 +83,7 @@ const Osusume1: React.FC = () => {
           {/* コンテンツ */}
           {/* LefttSide */}
           <h2 className="max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
-            UZUZのキャリアサポートがおすすめの３つの理由！
+            キャリエモンのキャリアサポートがおすすめの３つの理由！
           </h2>
           {/* RightSide */}
           <div className="">
