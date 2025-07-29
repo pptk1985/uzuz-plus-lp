@@ -40,7 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ```bash
 rm -rf out
 pnpm run build
-ssh $DESTINATION_HOST "rm -rf ~/public/media/lp"
-scp -r out $DESTINATION_HOST:~/public/media/
-ssh $DESTINATION_HOST "mv ~/public/media/out ~/public/media/lp"
+ssh $DESTINATION_HOST "rm -rf ~/public/lp"
+scp -r out $DESTINATION_HOST:~/public/
+ssh $DESTINATION_HOST "mv ~/public/out ~/public/lp"
 ```
