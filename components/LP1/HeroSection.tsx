@@ -85,7 +85,7 @@ const HeroSection: React.FC<HeroProps> = ({ setIndex }) => {
                   href="#flow"
                   onClick={(e) => {
                     e.preventDefault();
-                    setIndex?.(9);
+                    setIndex?.(8);
                     window.location.hash = 'flow';
                   }}
                 >
