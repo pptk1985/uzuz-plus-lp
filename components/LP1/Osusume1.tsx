@@ -70,10 +70,10 @@ const funFactsData = [
 
 const Osusume1: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="osusume1"
-      className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
+      className="h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -91,7 +91,7 @@ const Osusume1: React.FC = () => {
               {funFactsData &&
                 funFactsData.map((value, i) => (
                   <div
-                    className="px-3.5 py-2 sm:px-3 sm:py-4 bg-white/75 rounded-full"
+                    className="px-3.5 py-1.5 sm:px-3 sm:py-4 bg-white/75 rounded-full"
                     key={i}
                   >
                     <div className="grid grid-cols-[30px_1fr] justify-start items-center gap-1.5 sm:gap-2">
@@ -107,10 +107,10 @@ const Osusume1: React.FC = () => {
             </div>
           </div>
           {/* BottomSide */}
-          <div className="sm:col-span-2 bg-white/75 rounded-4xl p-4 sm:p-10">
+          <div className="sm:col-span-2 bg-white/75 rounded-4xl px-3 py-2 sm:p-10">
             <div className="flex justify-center items-center gap-1.5 sm:gap-2">
-              <h3 className="font-bold font-zen-maru text-base sm:text-2xl [text-shadow:_1px_2px_0_rgb(255_255_255_/_100%)] underline decoration-amber-300 decoration-3 decoration-dashed underline-offset-3 mb-1 sm:mb-2">
-                理由①. {funFactsData[0].title}
+              <h3 className="font-bold font-zen-maru text-base sm:text-2xl [text-shadow:_1px_2px_0_rgb(255_255_255_/_100%)] underline decoration-amber-300 decoration-3 decoration-dashed underline-offset-3">
+                １. {funFactsData[0].title}
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-[40%_60%] justify-center items-center">

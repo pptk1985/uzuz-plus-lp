@@ -11,10 +11,10 @@ interface HeroProps {
 
 const HeroSection: React.FC<HeroProps> = ({ setIndex }) => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="hero"
-      className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-cyan-600 bg-blend-overlay"
+      className="h-dvh bg-cover bg-center bg-cyan-600 bg-blend-overlay"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}

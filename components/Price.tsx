@@ -19,14 +19,14 @@ interface PriceProps {
 
 const Price: React.FC<PriceProps> = ({ setIndex }) => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
-    <div id="price" className="pt-8 sm:pt-12 h-dvh bg-repeat bg-1">
+    // h-dvhでビューポート高さを100%にする
+    <div id="price" className="h-dvh bg-repeat bg-1">
       <div className="flex justify-center items-center h-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-min gap-2 sm:gap-6 justify-center items-center mx-6 sm:mx-10 xl:mx-50 w-full">
           {/* コンテンツ */}
           {/* LefttSide */}
           <div>
-            <h2 className="max-w-xl mx-auto text-gray-900 text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight [text-shadow:_2px_3px_0_rgb(255_255_255_/_100%)] mb-4">
+            <h2 className="max-w-xl mx-auto text-gray-900 text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight [text-shadow:_2px_3px_0_rgb(255_255_255_/_100%)] mb-2 sm:mb-4">
               キャリエモンは完全無料のキャリアサービスです！
             </h2>
             <div className="bg-white/65 px-4 py-3 sm:px-5 sm:py-4 rounded-2xl">
@@ -45,7 +45,7 @@ const Price: React.FC<PriceProps> = ({ setIndex }) => {
                 登録 ～ 入社/後までのトータルサポート
               </div>
               <div className="text-center">
-                <span className="font-bold text-5xl sm:text-6xl text-amber-300 font-zen-maru [text-shadow:_2px_3px_0_rgb(0_0_0_/_100%)]">
+                <span className="font-bold text-3xl sm:text-6xl text-amber-300 font-zen-maru [text-shadow:_2px_3px_0_rgb(0_0_0_/_100%)]">
                   ０円
                 </span>
                 <span className="text-lg text-muted-foreground">

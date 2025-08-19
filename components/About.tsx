@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 const About: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="about"
-      className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-gray-900 bg-blend-overlay"
+      className="h-dvh bg-cover bg-center bg-gray-900 bg-blend-overlay"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -43,7 +43,7 @@ const About: React.FC = () => {
             </p>
           </div>
           <div className="bg-amber-50/75 px-4 py-2 sm:px-5 sm:py-4 rounded-lg max-w-xl h-full">
-            <h3 className="font-bold text-lg text-center mb-2">リンク</h3>
+            <h3 className="font-bold text-lg text-center mb-1">リンク</h3>
             <ul className="text-xs sm:text-base list-disc list-inside">
               <li>
                 <a href="https://uzuz.jp/">株式会社UZUZ</a>
@@ -54,7 +54,7 @@ const About: React.FC = () => {
             </ul>
           </div>
           <div className="bg-amber-50/75 px-4 py-2 sm:px-5 sm:py-4 rounded-lg max-w-xl h-full">
-            <h3 className="font-bold text-lg text-center mb-2">
+            <h3 className="font-bold text-lg text-center mb-1">
               お問い合わせ先
             </h3>
             <ul className="text-xs sm:text-base">

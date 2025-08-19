@@ -46,10 +46,10 @@ const funFactsData = [
 
 const FAQ: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="faq"
-      className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
+      className="h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -62,12 +62,7 @@ const FAQ: React.FC = () => {
           </h2>
 
           <div className="col-span-2 bg-white/75 px-6 py-3 sm:mx-12 rounded shadow">
-            <Accordion
-              type="single"
-              collapsible
-              className="w-full"
-              defaultValue="item-1"
-            >
+            <Accordion type="single" collapsible className="w-full">
               {funFactsData &&
                 funFactsData.map((value, i) => (
                   <AccordionItem key={i} value={`item-${i + 1}`}>

@@ -49,10 +49,10 @@ const CompanyData = [
 
 const Companies: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="company"
-      className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-cyan-500 bg-blend-overlay"
+      className="h-dvh bg-cover bg-center bg-cyan-500 bg-blend-overlay"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -74,7 +74,7 @@ const Companies: React.FC = () => {
                 alt="UZUZのキャリアサポート"
                 width={600}
                 height={600}
-                className="w-3/5 sm:w-full sm:max-w-96 mx-auto h-auto object-contain max-h-44 sm:max-h-64 [filter:drop-shadow(6px_3px_0px_#fff)]"
+                className="w-3/5 sm:w-full sm:max-w-96 mx-auto h-auto object-contain max-h-40 sm:max-h-64 [filter:drop-shadow(6px_3px_0px_#fff)]"
               />
             </div>
           </div>

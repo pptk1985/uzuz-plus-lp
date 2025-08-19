@@ -37,18 +37,18 @@ const SupportFlowData = [
 
 const SupportFlow: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <>
       <div
         id="flow"
-        className="pt-8 sm:pt-12 h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
+        className="h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
         style={{
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
         <div className="flex justify-center items-center h-full max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-6 mx-6 sm:mx-10 xl:mx-50">
-            <h2 className="col-span-1 sm:col-span-2 max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
+            <h2 className="col-span-1 sm:col-span-2 mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
               キャリアサポートの流れ
             </h2>
             {SupportFlowData &&
@@ -58,14 +58,14 @@ const SupportFlow: React.FC = () => {
                   className="rounded-lg p-3 pt-1 pb-2 sm:p-4 bg-white/75 shadow-md relative before:absolute before:-top-1.5 before:-left-1.5 before:w-7 before:h-7 before:bg-amber-300 before:rounded-full before:flex before:items-center before:justify-center before:text-white before:font-black before:text-xl before:pb-0.5 before:shadow before:z-10 before:content-[attr(data-number)]"
                   data-number={i + 1}
                 >
-                  <div className="grid grid-cols-[1fr_2fr] gap-0.5 sm:gap-2 justify-center items-center sm:items-center">
+                  <div className="grid grid-cols-[1fr_2fr] gap-0 sm:gap-2 justify-center items-center sm:items-center">
                     <div className="sm:col-span-2 flex justify-center">
                       <Image
                         src={value.image.src}
                         alt="image"
                         width={400}
                         height={400}
-                        className="drop-shadow-lg w-3/5 sm:w-1/2 max-w-48 mx-auto"
+                        className="drop-shadow-lg w-3/5 sm:w-1/2 max-w-40 mx-auto"
                       />
                     </div>
                     <h3 className="sm:col-span-2 text-center font-bold font-zen-maru text-xl sm:text-2xl [text-shadow:_1px_2px_0_rgb(255_255_255_/_100%)]">

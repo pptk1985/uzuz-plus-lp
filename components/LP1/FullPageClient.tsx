@@ -5,6 +5,7 @@ import type { FC } from 'react';
 import Header from '../Header';
 import SectionContainer, { Section } from '../SectionContainer';
 import DotNavigation from '../DotNavigation';
+import FixedBtn from '../FixedBtn';
 
 import HeroSection from './HeroSection';
 import RegistrationFormCta from '@/components/RegistrationFormCta';
@@ -64,6 +65,7 @@ const FullPageClient: FC = () => {
           setCurrentIndex={setCurrentIndex}
         />
       )}
+      <FixedBtn setIndex={setCurrentIndex} />
     </>
   );
 };

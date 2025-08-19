@@ -15,18 +15,18 @@ import {
 
 // Lucideアイコンのマッピング
 const iconMap: { [key: string]: React.JSX.Element } = {
-  yen: <BadgeJapaneseYen className="w-3.5 h-3.5 sm:w-6 sm:h-6" />,
-  globe: <Globe className="w-3.5 h-3.5 sm:w-6 sm:h-6" />,
-  handshake: <Handshake className="w-3.5 h-3.5 sm:w-6 sm:h-6" />,
-  user: <UserRoundCheck className="w-3.5 h-3.5 sm:w-6 sm:h-6" />,
-  building: <Building2 className="w-3.5 h-3.5 sm:w-6 sm:h-6" />,
+  yen: <BadgeJapaneseYen className="w-3 h-3 sm:w-4 sm:h-4" />,
+  globe: <Globe className="w-3 h-3 sm:w-4 sm:h-4" />,
+  handshake: <Handshake className="w-3 h-3 sm:w-4 sm:h-4" />,
+  user: <UserRoundCheck className="w-3 h-3 sm:w-4 sm:h-4" />,
+  building: <Building2 className="w-3.5 h-3.5 sm:w-5 sm:h-5" />,
 };
 
 const funFactsData = [
   {
     iconName: 'yen',
     title: '料金',
-    number: '０円/完全無料',
+    number: '0円/完全無料',
   },
   {
     iconName: 'globe',
@@ -52,17 +52,17 @@ const funFactsData = [
 
 const RegistrationFormCta: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <div
       id="registration"
-      className="pt-8 sm:pt-12 h-dvh w-full bg-cover bg-center bg-amber-300 bg-1"
+      className="h-dvh w-full bg-cover bg-center bg-amber-300 bg-1"
     >
-      <div className="flex justify-center items-center h-full max-w-7xl mx-auto relative before:content-[''] before:absolute before:bg-white before:h-[80%] sm:before:h-[75%] before:top-[15%] before:w-[96%] sm:before:w-[94%] sm:before:top-[18%] before:rounded-4xl before:z-0">
+      <div className="flex justify-center items-center h-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-min gap-2 sm:gap-6 justify-center items-center mx-6 sm:mx-10 xl:mx-50">
           {/* コンテンツ */}
           <div className="sm:col-span-2">
             <h2 className="text-center text-amber-300 text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-md [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_3px_2px_0_#000]">
-              ご利用の登録はコチラ
+              ご利用の登録はコチラから
             </h2>
           </div>
           {/* LeftSide */}
@@ -79,32 +79,32 @@ const RegistrationFormCta: React.FC = () => {
           </div>
 
           {/* RightSide */}
-          <div className="relative mt-4 sm:mt-0">
+          <div className="">
             <RegistrationForm />
-            <div className="absolute -top-3 -left-3 flex flex-col gap-1 z-10">
-              <div className="text-sm sm:text-base font-bold font-zen-maru text-white bg-rose-400 py-1 px-3 rounded shadow-md -rotate-3">
+            {/* <div className="absolute -top-4 -left-4 flex flex-col gap-1 z-10">
+              <div className="text-sm sm:text-base font-bold font-zen-maru text-white bg-rose-400 py-1 px-3 rounded shadow-md -rotate-2">
                 簡単！30秒で登録完了
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* BottomSide */}
           <div className="sm:col-span-2">
-            <div className="font-bold text-white grid grid-cols-2 gap-1.5 sm:gap-2 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 text-center">
               {funFactsData &&
                 funFactsData.map((value, i) => (
                   <div
-                    className="p-2 sm:mx-2 bg-sky-400 rounded-full flex flex-col sm:flex-row justify-center items-center gap-0.5 sm:gap-2 drop-shadow"
+                    className="p-1.5 sm:p-3 bg-white rounded-lg flex flex-col justify-center items-center gap-0.5 sm:gap-1"
                     key={i}
                   >
-                    <div className="text-xs sm:text-base leading-tight text-center">
-                      {value.title} :
+                    <div className="font-zen-maru text-xs sm:text-base leading-tight text-center">
+                      {value.title}
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2">
-                      <div className="bg-white rounded-full p-0.5 sm:p-1 text-amber-300 shadow">
+                      <div className="bg-white rounded-full p-0.5 sm:p-1 text-amber-300 shadow border border-amber-300">
                         {iconMap[value.iconName]}
                       </div>
-                      <div className="font-zen-maru text-sm sm:text-2xl leading-tight">
+                      <div className="text-xs sm:text-xl leading-tight">
                         {value.number}
                       </div>
                     </div>

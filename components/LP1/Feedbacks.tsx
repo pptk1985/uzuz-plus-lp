@@ -204,11 +204,11 @@ const feedbacskData = [
 
 const Feedbacks: React.FC = () => {
   return (
-    // ヘッダー分の余白を確保 pt-8 sm:pt-12、h-dvhでビューポート高さを100%にする
+    // h-dvhでビューポート高さを100%にする
     <>
       <div
         id="feedback"
-        className="pt-12 h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
+        className="h-dvh bg-cover bg-center bg-cyan-400 bg-blend-overlay"
         style={{
           backgroundImage: `url(${BgImg.src})`,
         }}

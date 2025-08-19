@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Logo from '@/public/images/careeremonimg/LOGO.png';
+import Logo from '@/public/images/careeremonimg/logo.png';
 import Image from 'next/image';
 
 interface NavItem {
