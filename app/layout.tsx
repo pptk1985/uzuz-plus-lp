@@ -1,6 +1,17 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { zenMaruGothicFont, zenKakuGothicNewFont } from './fonts';
+import {
+  zenMaruGothicFont,
+  zenKakuGothicNewFont,
+  mplus1pFont,
+  mplus1CodeFont,
+  mplusRounded1cFont,
+  notoSansJPFont,
+  notoSerifJPFont,
+  mochiyPopOneFont,
+  dancingScriptFont,
+  yuseiMagicFont,
+} from './fonts';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
@@ -16,12 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      {/* 最後に指定している font-zen-kaku が優先されてデフォルトのフォントになる。(クラスも機能するが全体に適応される) */}
       <body
-        className={`${zenMaruGothicFont.variable} ${zenKakuGothicNewFont.variable} font-zen-kaku antialiased`}
+        className={`${zenMaruGothicFont.variable} ${zenKakuGothicNewFont.variable} ${mplus1pFont.variable} ${mplus1CodeFont.variable} ${mplusRounded1cFont.variable} ${notoSansJPFont.variable} ${notoSerifJPFont.variable} ${mochiyPopOneFont.variable} ${dancingScriptFont.variable} ${yuseiMagicFont.variable} font-zen-kaku antialiased`}
       >
         {children}
       </body>
-      <GoogleAnalytics gaId="G-1ZZQ32CNXD" />
+      {/* <GoogleAnalytics gaId="G-1ZZQ32CNXD" /> */}
     </html>
   );
 }

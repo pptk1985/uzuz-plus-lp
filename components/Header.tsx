@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import Logo from '@/public/images/careeremonimg/logo_careeremon.png';
+import Logo from '@/public/images/uzuzplus/logo_uzuzplus-w.svg';
 import Image from 'next/image';
 
 interface NavItem {
@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-amber-300 shadow-lg' : 'bg-amber-300/75'
+        isScrolled ? 'bg-slate-900 shadow-lg' : 'bg-slate-900/75'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
                 alt="キャリエモンのキャリアサポート"
                 width={200}
                 height={200}
-                className="w-28 sm:w-40 mx-auto [filter:drop-shadow(1px_1px_0px_#fff)]"
+                className="w-24 sm:w-32 mx-auto [filter:drop-shadow(1px_1px_0px_#fff)]"
               />
             </Link>
           </div>

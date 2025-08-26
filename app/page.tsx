@@ -1,4 +1,4 @@
-import FullPageClient from '@/components/LP1/FullPageClient';
+import FullPageClient from '@/components/LP/FullPageClient';
 
 export default function Page() {
   return (

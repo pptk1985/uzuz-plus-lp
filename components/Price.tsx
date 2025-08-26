@@ -21,7 +21,7 @@ const Price: React.FC<PriceProps> = ({ setIndex }) => {
   return (
     // h-dvhでビューポート高さを100%にする
     <div id="price" className="h-dvh bg-repeat bg-1">
-      <div className="flex justify-center items-center h-full max-w-7xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-min gap-2 sm:gap-6 justify-center items-center mx-6 sm:mx-10 xl:mx-50 w-full">
           {/* コンテンツ */}
           {/* LefttSide */}

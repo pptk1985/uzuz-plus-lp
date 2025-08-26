@@ -1,0 +1,84 @@
+import React from 'react';
+import ColourfulText from '@/components/ui/colourful-text';
+import { TextGenerateEffect } from '../ui/text-generate-effect';
+
+import BgImg from '@/public/images/uzuzplus/mv.webp';
+import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
+import Image from 'next/image';
+
+export default function Hero() {
+  return (
+    <div className="relative">
+      {/* 上半分：backgroundImageを表示 */}
+      <div
+        id="hero"
+        className="h-[67dvh] bg-cover bg-center bg-slate-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
+        style={{
+          backgroundImage: `url(${BgImg.src})`,
+        }}
+      >
+        <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-4 justify-center items-end w-full h-full">
+            <div className="h-full flex justify-left items-end">
+              <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
+                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-delay-1000">
+                  大阪就職
+                </span>
+                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-delay-1000">
+                  IT・オフィスワーク
+                </span>
+                <span className="inline-block text-right ml-2">に特化！</span>
+              </div>
+            </div>
+            <div className="h-full flex justify-center items-center"></div>
+            <div className="col-span-2">
+              <h2 className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-white leading-snug mb-4">
+                <span className="bg-white px-3 mr-2">
+                  <ColourfulText text="スキル" />
+                </span>
+                <span className="text-2xl sm:text-5xl">も、</span>
+                <span className="bg-white px-3 mr-2">
+                  <ColourfulText text="キャリア" />
+                </span>
+                <span className="text-2xl sm:text-5xl">も、</span>
+                <br />
+                諦めない。
+              </h2>
+              <div className="bg-slate-950 px-3 py-1.5 inline-block mb-4 items-center">
+                <TextGenerateEffect words="病気・障害 がある方向けの 『就労移行支援』 サービス" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 下半分：bg-logo-patternを表示 */}
+      <div className="h-[33dvh] bg-logo-pattern-small px-2 sm:px-20 pb-14 sm:pb-18">
+        <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
+            <div className="col-span-2 h-full flex justify-center items-center">
+              <div className="text-center space-y-2 sm:space-y-3 bg-white/75 p-3 sm:p-6 border">
+                <div className="text-sm sm:text-xl font-semibold">
+                  病気・障害があっても、 誰もがウズウズ働ける世の中をつくる
+                </div>
+                <div className="text-xs sm:text-base">
+                  どんな壁があってもウズウズ働けるのが「当たり前」の社会へ。
+                  その理想を現実に変えるため、私たちは一人ひとりと向き合い続けます。
+                </div>
+              </div>
+            </div>
+            <div className="h-full flex justify-center items-center">
+              <Image
+                src={Logo}
+                alt="20代の就職を徹底サポート！ウズウズ｜株式会社UZUZ"
+                width={400}
+                height={400}
+                className="sm:p-2 [filter:drop-shadow(2px_1px_0px_#94a3b8)] sm:[filter:drop-shadow(4px_2px_0px_#94a3b8)]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
