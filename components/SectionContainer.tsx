@@ -64,6 +64,11 @@ const SectionContainer: FC<Props> = ({
       e.preventDefault(); // スクロール割り込み防止
       if (isScrolling.current) return;
 
+      // Macのトラックパッド対策：スクロール量の閾値を設定
+      const scrollThreshold = 50; // この値を調整して感度を制御
+
+      if (Math.abs(e.deltaY) < scrollThreshold) return;
+
       if (e.deltaY > 0 && currentIndex < sectionComponents.length - 1) {
         setCurrentIndex(currentIndex + 1);
       } else if (e.deltaY < 0 && currentIndex > 0) {
