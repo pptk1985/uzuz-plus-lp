@@ -66,7 +66,7 @@ export default function TabLayout1() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex flex-col justify-center items-center h-full max-w-5xl mx-auto">
+      <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
         <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
           タイトルタイトル
         </h2>

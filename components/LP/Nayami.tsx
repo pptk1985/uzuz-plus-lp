@@ -24,7 +24,7 @@ export default function Nayami() {
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
@@ -32,7 +32,7 @@ export default function Nayami() {
               </h2>
             </div>
             <div className="col-span-2 text-white self-start">
-              <ul className="sm:space-y-2 text-base sm:text-xl font-semibold">
+              <ul className="sm:space-y-2 text-base sm:text-xl font-semibold text-center">
                 <li>・就職しても長く続かない／働く自信が持てない</li>
                 <li>・ITに興味はあるが何から始めれば良いか分からない</li>
                 <li>・通所ペースや体調が不安</li>
@@ -45,7 +45,7 @@ export default function Nayami() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[55dvh] bg-brick-cyan px-2 sm:px-20 pb-14 sm:pb-18">
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-start">
               <h3 className="text-center text-slate-900 text-lg sm:text-3xl font-extrabold bg-white px-3 py-2 sm:px-6 sm:py-4 shadow rounded-2xl relative -top-2 sm:-top-4">
@@ -53,7 +53,7 @@ export default function Nayami() {
               </h3>
             </div>
             <div className="col-span-2 h-full flex justify-center items-center">
-              <div className="flex justify-center items-center h-full max-w-5xl mx-auto relative -top-4 sm:-top-6">
+              <div className="flex justify-center items-center h-full max-w-4xl mx-auto relative -top-4 sm:-top-6">
                 <div className="rounded-md dark:border-neutral-800">
                   {features.map((feature) => (
                     <FeatureCard

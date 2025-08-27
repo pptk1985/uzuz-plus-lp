@@ -16,7 +16,7 @@ export default function BgandTtlpattern2() {
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
             <div className="border h-full flex justify-center items-center">
               <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
@@ -52,7 +52,7 @@ export default function BgandTtlpattern2() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[50dvh] bg-logo-pattern-small px-2 sm:px-20 pb-14 sm:pb-18">
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
             <div className="border h-full flex justify-center items-center">
               <h2 className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-center text-slate-400">

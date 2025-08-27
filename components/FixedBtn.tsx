@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { MessageCirclePlus } from 'lucide-react';
 
 type Props = {
   setIndex: (index: number) => void;
@@ -18,11 +18,12 @@ const FixedBtn: FC<Props> = ({ setIndex }) => {
     <div className="fixed bottom-3 left-4 right-4 sm:left-1/4 sm:right-1/4 z-50">
       <button
         onClick={handleClick}
-        className="w-full inline-flex items-center justify-center p-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+        className="w-full inline-flex items-center justify-center p-2 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
-        {/* <span>無料でキャリア相談を受ける</span> */}
-        <span>あああああCTAぼたんんんん</span>
-        <ArrowRight />
+        <span className="drop-shadow-xs font-zen-maru text-base sm:text-2xl">
+          無料相談／見学受付中
+        </span>
+        <MessageCirclePlus className="ml-1" />
       </button>
     </div>
   );

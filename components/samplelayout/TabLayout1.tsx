@@ -12,7 +12,7 @@ export default function TabLayout1() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <Tabs defaultValue="tab1" className="w-full">
           <TabsList>
             <TabsTrigger value="tab1">タブ01</TabsTrigger>

@@ -16,12 +16,12 @@ export default function Pricing() {
       {/* 上半分：backgroundImageを表示 */}
       <div
         id="pricing"
-        className="h-[70dvh] bg-cover bg-center bg-emerald-900 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
+        className="h-[70dvh] bg-cover bg-center bg-emerald-700 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
         style={{
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex flex-col justify-center items-center h-full max-w-5xl mx-auto pb-4">
+        <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto pb-4">
           <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
             料金
           </h2>
@@ -84,7 +84,7 @@ export default function Pricing() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[30dvh] bg-memphis px-2 sm:px-20 pb-14 sm:pb-18 pt-1.5">
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-1 gap-1 justify-center items-center w-full h-full">
             <div className="h-full flex justify-center items-center">
               <div className="bg-white/75 p-2 sm:p-4 border">

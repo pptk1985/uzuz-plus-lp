@@ -86,7 +86,7 @@ const Osusume2: React.FC = () => {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-min gap-2 sm:gap-6 justify-center items-center mx-6 sm:mx-10 xl:mx-50 w-full">
           {/* コンテンツ */}
           {/* TopSide */}

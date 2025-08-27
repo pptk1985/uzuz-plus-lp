@@ -19,7 +19,7 @@ export default function Reason() {
       <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
         UZUZ Plus+が選ばれる５つの理由
       </h2>
-      <div className="flex justify-center items-start h-full max-w-5xl mx-auto">
+      <div className="flex justify-center items-start h-full max-w-4xl mx-auto">
         <LayoutGrid cards={cards} />
       </div>
     </div>

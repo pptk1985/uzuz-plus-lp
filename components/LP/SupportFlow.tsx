@@ -49,7 +49,7 @@ export default function SupportFlow() {
     <div
       id="supportflow"
       // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-blue-950 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
+      className="h-dvh bg-cover bg-center bg-blue-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -65,7 +65,7 @@ export default function SupportFlow() {
         />
       </div>
 
-      <div className="flex justify-center items-center h-full max-w-5xl mx-4 sm:mx-auto">
+      <div className="flex justify-center items-center h-full max-w-4xl mx-4 sm:mx-auto">
         <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
           <div className="col-span-2 h-full flex justify-center items-center">
             <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold drop-shadow">

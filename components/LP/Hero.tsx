@@ -2,6 +2,7 @@ import React from 'react';
 import ColourfulText from '@/components/ui/colourful-text';
 import { TextGenerateEffect } from '../ui/text-generate-effect';
 
+import { MapPin } from 'lucide-react';
 import BgImg from '@/public/images/uzuzplus/mv.webp';
 import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
 import Image from 'next/image';
@@ -17,17 +18,21 @@ export default function Hero() {
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-end w-full h-full">
             <div className="h-full flex justify-left items-end">
               <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
                 <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-thrice animate-delay-1000">
+                  <MapPin className="inline-block w-5 h-5 sm:w-6 sm:h-6 relative -top-0.5 sm:-top-1 mr-0.5" />
                   大阪就職
                 </span>
+                <br />
                 <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-thrice animate-delay-1000">
                   IT・オフィスワーク
                 </span>
-                <span className="inline-block text-right ml-2">に特化！</span>
+                <span className="inline-block text-right ml-2 -rotate-2">
+                  に特化！
+                </span>
               </div>
             </div>
             <div className="h-full flex justify-center items-center"></div>
@@ -54,7 +59,7 @@ export default function Hero() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[33dvh] bg-logo-pattern-small px-2 sm:px-20 pb-14 sm:pb-18">
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <div className="text-center space-y-2 sm:space-y-3 bg-white/75 p-3 sm:p-6 border">

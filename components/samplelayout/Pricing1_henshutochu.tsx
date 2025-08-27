@@ -90,8 +90,8 @@ const Pricing1 = ({
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
+      <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <h2 className="text-4xl font-semibold text-pretty lg:text-6xl">
             {heading}
           </h2>

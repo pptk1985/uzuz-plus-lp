@@ -12,7 +12,7 @@ export default function SampleFont() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-center items-center w-full h-full">
           <div className="border h-full">
             <span>デフォルト</span>

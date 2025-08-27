@@ -17,7 +17,7 @@ export default function Closing() {
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-end w-full h-full">
             <div className="h-full flex justify-left items-end">
               <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
@@ -54,7 +54,7 @@ export default function Closing() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[33dvh] bg-logo-pattern-small px-2 sm:px-20 pb-14 sm:pb-18">
-        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <div className="text-center space-y-2 sm:space-y-3 bg-white/75 p-3 sm:p-6 border">
