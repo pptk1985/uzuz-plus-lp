@@ -20,7 +20,8 @@ const FixedBtn: FC<Props> = ({ setIndex }) => {
         onClick={handleClick}
         className="w-full inline-flex items-center justify-center p-2 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
-        <span>無料でキャリア相談を受ける</span>
+        {/* <span>無料でキャリア相談を受ける</span> */}
+        <span>あああああCTAぼたんんんん</span>
         <ArrowRight />
       </button>
     </div>

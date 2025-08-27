@@ -28,10 +28,10 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
   }, []);
 
   const navItems: NavItem[] = [
-    { name: '利用者の声', href: '#feedback', index: 3 },
-    { name: '特徴', href: '#osusume1', index: 4 },
-    { name: '料金', href: '#price', index: 7 },
-    { name: 'サポートの流れ', href: '#flow', index: 8 },
+    { name: 'ああああ', href: '#feedback', index: 3 },
+    { name: 'いいい', href: '#osusume1', index: 4 },
+    { name: 'ううう', href: '#price', index: 7 },
+    { name: 'えええ', href: '#flow', index: 8 },
   ];
 
   const handleMenuToggle = (): void => {

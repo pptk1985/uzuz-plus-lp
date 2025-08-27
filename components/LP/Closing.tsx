@@ -2,7 +2,7 @@ import React from 'react';
 import ColourfulText from '@/components/ui/colourful-text';
 import { TextGenerateEffect } from '../ui/text-generate-effect';
 
-import BgImg from '@/public/images/uzuzplus/closing_1200x800.png';
+import BgImg from '@/public/images/uzuzplus/future.webp';
 import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
 import Image from 'next/image';
 
@@ -12,7 +12,7 @@ export default function Closing() {
       {/* 上半分：backgroundImageを表示 */}
       <div
         id="closing"
-        className="h-[67dvh] bg-cover bg-center bg-slate-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
+        className="h-[67dvh] bg-cover bg-center bg-slate-900 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
         style={{
           backgroundImage: `url(${BgImg.src})`,
         }}
@@ -22,10 +22,10 @@ export default function Closing() {
             <div className="h-full flex justify-left items-end">
               <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
                 <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
-                  大阪就職
+                  途中途中途中途中
                 </span>
                 <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
-                  IT・オフィスワーク
+                  途中途中途中途中
                 </span>
                 <span className="inline-block text-right ml-2">に特化！</span>
               </div>
@@ -34,11 +34,11 @@ export default function Closing() {
             <div className="col-span-2">
               <h2 className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-white leading-snug mb-4">
                 <span className="bg-white px-3 mr-2">
-                  <ColourfulText text="スキル" />
+                  <ColourfulText text="途中途中" />
                 </span>
                 <span className="text-2xl sm:text-5xl">も、</span>
                 <span className="bg-white px-3 mr-2">
-                  <ColourfulText text="キャリア" />
+                  <ColourfulText text="だよだよ" />
                 </span>
                 <span className="text-2xl sm:text-5xl">も、</span>
                 <br />
