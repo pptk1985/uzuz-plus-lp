@@ -97,10 +97,6 @@ const FeatureCard = ({
 //   );
 // };
 
-const FeatureTitle = () => {
-  return <></>;
-};
-
 // const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 //   return (
 //     <p
@@ -114,10 +110,6 @@ const FeatureTitle = () => {
 //     </p>
 //   );
 // };
-
-const FeatureDescription = () => {
-  return <></>;
-};
 
 export const SkeletonTwo = () => {
   const images = [
