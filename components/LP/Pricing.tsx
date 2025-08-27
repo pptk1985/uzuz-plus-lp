@@ -104,7 +104,7 @@ export default function Pricing() {
                   <DialogHeader>
                     <DialogTitle>注釈について</DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
+                  <div className="space-y-2 sm:space-y-4 text-xs sm:text-sm">
                     <div>
                       ※1：3人世帯で障害基礎年金1級受給の場合、収入が概ね300万円以下の世帯が対象となります。
                     </div>

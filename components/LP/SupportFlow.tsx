@@ -49,7 +49,7 @@ export default function SupportFlow() {
     <div
       id="supportflow"
       // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-blue-900 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
+      className="h-dvh bg-cover bg-center bg-blue-800 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
@@ -65,7 +65,7 @@ export default function SupportFlow() {
         />
       </div>
 
-      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-4">
         <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
           <div className="col-span-2 h-full flex justify-center items-center">
             <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold drop-shadow">
@@ -77,7 +77,7 @@ export default function SupportFlow() {
               key={index}
               className="h-full flex flex-col justify-center items-center relative"
             >
-              <div className="absolute top-3 left-2 z-10 bg-blue-500 w-6 sm:w-12 aspect-square rounded-full flex items-center justify-center font-bold text-base sm:text-3xl font-dancing-script text-white shadow">
+              <div className="absolute top-3 left-2 z-10 bg-blue-500 w-7 sm:w-12 aspect-square rounded-full flex items-center justify-center font-bold text-lg sm:text-3xl font-dancing-script text-white shadow">
                 {step.step}
               </div>
               <div className="bg-white/90 w-full max-w-24 sm:max-w-36 aspect-square rounded-full flex items-center justify-center font-yusei-magic text-sm sm:text-xl text-center p-1 sm:p-2 mb-1 sm:mb-2">
