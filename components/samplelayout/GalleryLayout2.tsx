@@ -15,7 +15,7 @@ export default function GalleryLayout2() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
         <LayoutGrid cards={cards} />
       </div>
     </div>

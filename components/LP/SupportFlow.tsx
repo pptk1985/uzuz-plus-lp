@@ -62,7 +62,7 @@ export default function SupportFlow() {
         />
       </div>
 
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
         <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
           <div className="col-span-2 h-full flex justify-center items-center">
             <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold drop-shadow">

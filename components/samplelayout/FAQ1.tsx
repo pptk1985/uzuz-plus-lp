@@ -53,7 +53,7 @@ export default function FAQ1() {
           clipPath: 'circle(60% at 50% 56%)',
         }}
       >
-        <div className="flex flex-col justify-center items-center h-full max-w-6xl mx-auto">
+        <div className="flex flex-col justify-center items-center h-full max-w-5xl mx-auto">
           <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-6 drop-shadow">
             よくあるご質問
           </h2>

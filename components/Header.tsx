@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
                 alt="キャリエモンのキャリアサポート"
                 width={200}
                 height={200}
-                className="w-24 sm:w-32 mx-auto [filter:drop-shadow(1px_1px_0px_#fff)]"
+                className="w-24 sm:w-32 mx-auto"
               />
             </Link>
           </div>

@@ -103,7 +103,7 @@ export default function Program() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex flex-col justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex flex-col justify-center items-center h-full max-w-5xl mx-auto">
         <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
           支援プログラムの紹介
         </h2>

@@ -40,7 +40,7 @@ const Attractiveness: React.FC = () => {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-1 auto-rows-min gap-2 sm:gap-6 justify-center items-center mx-6 sm:mx-10 xl:mx-50">
           {/* コンテンツ */}
           <h2 className="max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">

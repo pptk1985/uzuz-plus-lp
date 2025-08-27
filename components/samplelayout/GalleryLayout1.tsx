@@ -23,7 +23,7 @@ export default function GalleryLayout1() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
         <div className="rounded-md dark:border-neutral-800">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>

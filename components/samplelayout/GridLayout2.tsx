@@ -12,7 +12,7 @@ export default function GridLayout2() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
         <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
           <div className="col-span-2 border h-full flex justify-center items-center">
             01

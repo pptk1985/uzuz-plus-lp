@@ -213,7 +213,7 @@ const Feedbacks: React.FC = () => {
           backgroundImage: `url(${BgImg.src})`,
         }}
       >
-        <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
+        <div className="flex justify-center items-center h-full max-w-5xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 sm:gap-4 mx-6 sm:mx-10 xl:mx-50">
             <h2 className="col-span-1 sm:col-span-2 max-w-xl mx-auto text-white text-3xl sm:text-5xl xl:text-5xl 2xl:text-6xl font-black leading-tight drop-shadow-lg">
               利用者の声
