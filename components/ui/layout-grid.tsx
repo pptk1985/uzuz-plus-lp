@@ -78,7 +78,7 @@ const ImageComponent = ({ card }: { card: Card }) => {
       {/* 初期状態のテキスト表示 */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 hover:bg-orange-300/25">
         {card.icon && (
-          <div className="bg-orange-300 text-white p-1.5 sm:p-2 rounded-lg backdrop-blur-sm mb-1.5 sm:mb-3 animate-pulse">
+          <div className="bg-orange-400 text-white p-1.5 sm:p-2 rounded-lg backdrop-blur-sm mb-1.5 sm:mb-3 animate-pulse">
             <div className="text-white">{card.icon}</div>
           </div>
         )}
