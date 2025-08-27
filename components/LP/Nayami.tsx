@@ -113,14 +113,14 @@ const FeatureCard = ({
 
 export const SkeletonTwo = () => {
   const images = [
-    '/lp/images/uzuzplus/IMG_7663.png',
-    '/lp/images/uzuzplus/IMG_2607.png',
-    '/lp/images/uzuzplus/IMG_2698.png',
-    '/lp/images/uzuzplus/IMG_7555.png',
-    '/lp/images/uzuzplus/IMG_7590.png',
-    '/lp/images/uzuzplus/IMG_7642.png',
-    '/lp/images/uzuzplus/IMG_2637.png',
-    '/lp/images/uzuzplus/IMG_2694.png',
+    '/images/uzuzplus/IMG_7663.png',
+    '/images/uzuzplus/IMG_2607.png',
+    '/images/uzuzplus/IMG_2698.png',
+    '/images/uzuzplus/IMG_7555.png',
+    '/images/uzuzplus/IMG_7590.png',
+    '/images/uzuzplus/IMG_7642.png',
+    '/images/uzuzplus/IMG_2637.png',
+    '/images/uzuzplus/IMG_2694.png',
   ];
 
   const imageVariants = {
