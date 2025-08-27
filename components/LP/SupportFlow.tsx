@@ -49,7 +49,7 @@ export default function SupportFlow() {
     <div
       id="supportflow"
       // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-blue-800 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
+      className="h-dvh bg-cover bg-center bg-blue-950 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
       style={{
         backgroundImage: `url(${BgImg.src})`,
       }}
