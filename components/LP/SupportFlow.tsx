@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import BgImg from '@/public/images/uzuzplus/539641126_1200x800.png';
 import CornerImg from '@/public/images/uzuzplus/logo_uzuzplus-w.svg';
@@ -55,10 +56,12 @@ export default function SupportFlow() {
     >
       {/* 左上の角の画像 */}
       <div className="absolute top-8 left-2 w-26 h-26 sm:w-42 sm:h-42 -rotate-12 z-10">
-        <img
+        <Image
           src={CornerImg.src}
           alt="Corner Image"
           className="w-full h-full object-contain"
+          width={200}
+          height={200}
         />
       </div>
 

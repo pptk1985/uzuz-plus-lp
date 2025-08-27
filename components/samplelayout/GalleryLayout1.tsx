@@ -1,6 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 import BgImg from '@/public/images/uzuzlp/2273260509_1200x800.png';
 
@@ -108,7 +109,7 @@ export const SkeletonTwo = () => {
             whileTap="whileTap"
             className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
           >
-            <img
+            <Image
               src={image}
               alt="bali images"
               width="500"
@@ -130,7 +131,7 @@ export const SkeletonTwo = () => {
             whileTap="whileTap"
             className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
           >
-            <img
+            <Image
               src={image}
               alt="bali images"
               width="500"

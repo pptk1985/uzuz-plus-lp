@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import BgImg from '@/public/images/uzuzlp/2273260509_1200x800.png';
 import CornerImg from '@/public/images/uzuzplus/logo_uzuzplus.svg';
@@ -15,34 +16,42 @@ export default function CornerImageLayout1() {
     >
       {/* 左上の角の画像 */}
       <div className="absolute top-8 left-2 w-20 h-20 sm:w-30 sm:h-30 -rotate-12 z-10">
-        <img
+        <Image
           src={CornerImg.src}
           alt="Corner Image"
           className="w-full h-full object-contain"
+          width={200}
+          height={200}
         />
       </div>
       {/* 右上の角の画像 */}
       <div className="absolute top-8 right-2 w-20 h-20 sm:w-30 sm:h-30 rotate-12 z-10">
-        <img
+        <Image
           src={CornerImg.src}
           alt="Corner Image"
           className="w-full h-full object-contain"
+          width={200}
+          height={200}
         />
       </div>
       {/* 左下の角の画像 */}
       <div className="absolute bottom-8 left-2 w-20 h-20 sm:w-30 sm:h-30 rotate-12 z-10">
-        <img
+        <Image
           src={CornerImg.src}
           alt="Corner Image"
           className="w-full h-full object-contain"
+          width={200}
+          height={200}
         />
       </div>
       {/* 右下の角の画像 */}
       <div className="absolute bottom-8 right-2 w-20 h-20 sm:w-30 sm:h-30 -rotate-12 z-10">
-        <img
+        <Image
           src={CornerImg.src}
           alt="Corner Image"
           className="w-full h-full object-contain"
+          width={200}
+          height={200}
         />
       </div>
 
