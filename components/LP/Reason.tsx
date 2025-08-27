@@ -32,7 +32,7 @@ const SkeletonOne = () => {
         ① IT分野に強い実践型カリキュラム
       </p>
       <p className="font-normal text-base text-white"></p>
-      <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+      <p className="font-normal text-sm sm:text-base my-4 max-w-lg text-neutral-200">
         プログラミングやWebデザイン、AI分野の講座まで豊富な学習コンテンツを用意。加えて、ソーシャルスキルが学べるカリキュラムなども幅広く提供しています。教材は今後も増え続けるので、学びの選択肢が広がります。
       </p>
     </div>
@@ -46,7 +46,7 @@ const SkeletonTwo = () => {
         ② 種類豊富なオンライン学習コンテンツ
       </p>
       <p className="font-normal text-base text-white"></p>
-      <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+      <p className="font-normal text-sm sm:text-base my-4 max-w-lg text-neutral-200">
         通勤・通所が難しい日でも、自宅で自分のペースで学習を進められるオンラインコンテンツを多数用意。5,000名以上をIT業界へ輩出した“実践型カリキュラム”を採用。基礎から現場で役立つスキルまで着実に身につけられます。
       </p>
     </div>
@@ -59,7 +59,7 @@ const SkeletonThree = () => {
         ③ 累計サポート８万件超！キャリア支援ノウハウ
       </p>
       <p className="font-normal text-base text-white"></p>
-      <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+      <p className="font-normal text-sm sm:text-base my-4 max-w-lg text-neutral-200">
         2012年創業以来、就職・転職支援ノウハウを培ってきたUZUZグループ。登録者7万人超の就活YouTube「ひろさんチャンネル」など実践的コンテンツも充実しているので「本当に就職につながる支援」が提供できます。
       </p>
     </div>
@@ -72,7 +72,7 @@ const SkeletonFour = () => {
         ④ オンラインでも対面でも安心のサポート
       </p>
       <p className="font-normal text-base text-white"></p>
-      <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+      <p className="font-normal text-sm sm:text-base my-4 max-w-lg text-neutral-200">
         オンラインでもリアルでも安心して支援を受けられます。事業所には専門の相談員が常駐。いつでも対面でサポートします。加えて、仮想空間「MetaLife」も導入しているので、ご自宅からでも気軽に相談可能です。
       </p>
     </div>
@@ -85,7 +85,7 @@ const SkeletonFive = () => {
         ⑤ あなただけの「オーダーメイド支援」
       </p>
       <p className="font-normal text-base text-white"></p>
-      <p className="font-normal text-base my-4 max-w-lg text-neutral-200">
+      <p className="font-normal text-sm sm:text-base my-4 max-w-lg text-neutral-200">
         一人ひとりの個性や目標を大切に、専門スタッフがしっかり伴走。定期面談では学習コンテンツの進め方をはじめ、就職活動やメンタル面の支援も実施。実際に就職した後のフォローまで、あなたに合ったサポートを提供します。
       </p>
     </div>

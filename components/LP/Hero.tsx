@@ -21,10 +21,10 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-4 justify-center items-end w-full h-full">
             <div className="h-full flex justify-left items-end">
               <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
-                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-delay-1000">
+                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
                   大阪就職
                 </span>
-                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-delay-1000">
+                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
                   IT・オフィスワーク
                 </span>
                 <span className="inline-block text-right ml-2">に特化！</span>

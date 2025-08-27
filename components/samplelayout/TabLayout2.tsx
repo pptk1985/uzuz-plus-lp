@@ -11,7 +11,7 @@ export default function TabLayout1() {
       title: 'タブ１',
       value: 'tab1',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl sm:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Product Tab</p>
           <Image
             src={Img.src}
@@ -27,7 +27,7 @@ export default function TabLayout1() {
       title: 'タブ２',
       value: 'tab2',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl sm:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Services tab</p>
           <Image
             src={Img.src}
@@ -43,7 +43,7 @@ export default function TabLayout1() {
       title: 'タブ３',
       value: 'tab3',
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl sm:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
           <p>Content tab</p>
           <Image
             src={Img.src}
@@ -66,8 +66,11 @@ export default function TabLayout1() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex justify-center items-center h-full max-w-6xl mx-auto">
-        <div className="h-4/5 [perspective:1000px] relative flex flex-col mx-auto w-full items-start justify-start">
+      <div className="flex-col justify-center items-center h-full max-w-6xl mx-auto">
+        <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
+          タイトルタイトル
+        </h2>
+        <div className="h-4/5 [perspective:1000px] relative flex flex-col mx-auto w-full items-center justify-center">
           <Tabs tabs={tabs} />
         </div>
       </div>

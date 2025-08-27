@@ -11,12 +11,14 @@ import Hero from '@/components/LP/Hero';
 import Nayami from '@/components/LP/Nayami';
 import Reason from '@/components/LP/Reason';
 import Program from '@/components/LP/Program';
+import SupportFlow from '@/components/LP/SupportFlow';
 
 const sectionComponents: Section[] = [
   { id: 'hero', component: Hero },
   { id: 'nayami', component: Nayami },
   { id: 'reason', component: Reason },
   { id: 'program', component: Program },
+  { id: 'supportflow', component: SupportFlow },
 ];
 
 const FullPageClient: FC = () => {
