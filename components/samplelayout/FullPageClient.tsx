@@ -17,6 +17,7 @@ import GalleryLayout2 from '@/components/samplelayout/GalleryLayout2';
 import CornerImageLayout1 from '@/components/samplelayout/CornerImageLayout1';
 import { Pricing1 } from '@/components/samplelayout/Pricing1_henshutochu';
 import { Compare1 } from '@/components/samplelayout/Compare1_henshutochu';
+import FAQ1 from '@/components/samplelayout/FAQ1';
 
 const sectionComponents: Section[] = [
   { id: 'gridlayout1', component: GridLayout1 },
@@ -29,6 +30,7 @@ const sectionComponents: Section[] = [
   { id: 'cornerimagelayout1', component: CornerImageLayout1 },
   { id: 'pricing1', component: Pricing1 },
   { id: 'compare1', component: Compare1 },
+  { id: 'faq1', component: FAQ1 },
 ];
 
 const FullPageClient: FC = () => {

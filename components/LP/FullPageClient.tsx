@@ -12,6 +12,8 @@ import Nayami from '@/components/LP/Nayami';
 import Reason from '@/components/LP/Reason';
 import Program from '@/components/LP/Program';
 import SupportFlow from '@/components/LP/SupportFlow';
+import Pricing from '@/components/LP/Pricing';
+import FAQ from '@/components/LP/FAQ';
 
 const sectionComponents: Section[] = [
   { id: 'hero', component: Hero },
@@ -19,6 +21,8 @@ const sectionComponents: Section[] = [
   { id: 'reason', component: Reason },
   { id: 'program', component: Program },
   { id: 'supportflow', component: SupportFlow },
+  { id: 'pricing', component: Pricing },
+  { id: 'faq', component: FAQ },
 ];
 
 const FullPageClient: FC = () => {

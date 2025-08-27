@@ -12,7 +12,7 @@ export default function Program() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 sm:p-10 text-xs sm:text-xl font-semibold text-slate-900 bg-gradient-to-br from-blue-600 to-blue-900">
           <h3 className="text-xl sm:text-4xl font-extrabold text-center text-white underline underline-offset-8 decoration-2 flex justify-center items-center gap-2">
-            <PenTool className="w-9 h-9 relative top-1" />
+            <PenTool className="w-7 h-7 sm:w-9 sm:h-9 relative top-1" />
             ジョブスキル トレーニング
           </h3>
           <div className="grid grid-cols-3 gap-1 sm:gap-3 justify-center items-center w-full h-full pt-4 pb-10">
@@ -53,7 +53,7 @@ export default function Program() {
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-4 sm:p-10 text-xs sm:text-xl font-semibold text-slate-900 bg-gradient-to-br from-teal-600 to-teal-900">
           <h3 className="text-xl sm:text-4xl font-extrabold text-center text-white underline underline-offset-8 decoration-2 flex justify-center items-center gap-2">
-            <LaptopMinimalCheck className="w-9 h-9 relative top-1" />
+            <LaptopMinimalCheck className="w-7 h-7 sm:w-9 sm:h-9 relative top-1" />
             IT・PCスキル トレーニング
           </h3>
           <div className="grid grid-cols-3 gap-1 sm:gap-3 justify-center items-center w-full h-full pt-4 pb-10">
@@ -103,7 +103,7 @@ export default function Program() {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <div className="flex-col justify-center items-center h-full max-w-6xl mx-auto">
+      <div className="flex flex-col justify-center items-center h-full max-w-6xl mx-auto">
         <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
           支援プログラムの紹介
         </h2>
