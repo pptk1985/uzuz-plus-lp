@@ -12,7 +12,7 @@ import {
   dancingScriptFont,
   yuseiMagicFont,
 } from './fonts';
-import { GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: 'キャリエモン - プロのキャリアサポートが受けられる！',

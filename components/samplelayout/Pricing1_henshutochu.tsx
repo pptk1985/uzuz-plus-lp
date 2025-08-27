@@ -79,7 +79,6 @@ const Pricing1 = ({
     //   },
     // },
   ],
-  setIndex,
 }: Pricing1Props) => {
   const [isYearly, setIsYearly] = useState(false);
   return (

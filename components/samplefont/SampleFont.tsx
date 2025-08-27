@@ -1,5 +1,4 @@
 import React from 'react';
-import { dancingScriptFont } from '@/app/fonts';
 
 import BgImg from '@/public/images/uzuzlp/2273260509_1200x800.png';
 

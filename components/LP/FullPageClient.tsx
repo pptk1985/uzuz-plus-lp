@@ -14,6 +14,7 @@ import Program from '@/components/LP/Program';
 import SupportFlow from '@/components/LP/SupportFlow';
 import Pricing from '@/components/LP/Pricing';
 import FAQ from '@/components/LP/FAQ';
+import Closing from '@/components/LP/Closing';
 
 const sectionComponents: Section[] = [
   { id: 'hero', component: Hero },
@@ -23,6 +24,7 @@ const sectionComponents: Section[] = [
   { id: 'supportflow', component: SupportFlow },
   { id: 'pricing', component: Pricing },
   { id: 'faq', component: FAQ },
+  { id: 'closing', component: Closing },
 ];
 
 const FullPageClient: FC = () => {

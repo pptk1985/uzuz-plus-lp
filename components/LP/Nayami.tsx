@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
 import BgImg from '@/public/images/uzuzplus/about.webp';
-import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
 import Image from 'next/image';
 
 export default function Nayami() {
@@ -61,10 +60,10 @@ export default function Nayami() {
                       key={feature.title}
                       className={feature.className}
                     >
-                      <FeatureTitle>{feature.title}</FeatureTitle>
+                      {/* <FeatureTitle>{feature.title}</FeatureTitle>
                       <FeatureDescription>
                         {feature.description}
-                      </FeatureDescription>
+                      </FeatureDescription> */}
                       <div className=" h-full w-full">{feature.skeleton}</div>
                     </FeatureCard>
                   ))}
@@ -90,28 +89,34 @@ const FeatureCard = ({
   );
 };
 
-const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    // <p className="mx-auto text-left tracking-tight text-black dark:text-white text-xl sm:text-2xl sm:leading-snug">
-    //   {children}
-    // </p>
-    <></>
-  );
+// const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
+//   return (
+//     <p className="mx-auto text-left tracking-tight text-black dark:text-white text-xl sm:text-2xl sm:leading-snug">
+//       {children}
+//     </p>
+//   );
+// };
+
+const FeatureTitle = () => {
+  return <></>;
 };
 
-const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    // <p
-    //   className={cn(
-    //     'text-sm sm:text-base  text-left mx-auto',
-    //     'text-neutral-500 text-center font-normal dark:text-neutral-300',
-    //     'text-left mx-0 sm:text-sm my-2'
-    //   )}
-    // >
-    //   {children}
-    // </p>
-    <></>
-  );
+// const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
+//   return (
+//     <p
+//       className={cn(
+//         'text-sm sm:text-base  text-left mx-auto',
+//         'text-neutral-500 text-center font-normal dark:text-neutral-300',
+//         'text-left mx-0 sm:text-sm my-2'
+//       )}
+//     >
+//       {children}
+//     </p>
+//   );
+// };
+
+const FeatureDescription = () => {
+  return <></>;
 };
 
 export const SkeletonTwo = () => {
