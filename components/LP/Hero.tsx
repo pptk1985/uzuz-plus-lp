@@ -62,9 +62,9 @@ export default function Hero() {
         <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
-              <div className="text-center space-y-2 sm:space-y-3 bg-white/75 p-3 sm:p-6 border">
-                <div className="text-sm sm:text-xl font-semibold">
-                  病気・障害があっても、 誰もがウズウズ働ける世の中をつくる
+              <div className="space-y-1 sm:space-y-2 bg-white/75 p-2 sm:p-4 border">
+                <div className="text-center text-sm sm:text-xl font-semibold">
+                  病気・障害があっても、 誰もがウズウズ働ける世の中をつくる。
                 </div>
                 <div className="text-xs sm:text-base">
                   どんな壁があってもウズウズ働けるのが「当たり前」の社会へ。

@@ -21,7 +21,7 @@ const FixedBtn: FC<Props> = ({ setIndex }) => {
         className="w-full inline-flex items-center justify-center p-2 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
       >
         <span className="drop-shadow-xs font-zen-maru text-base sm:text-2xl">
-          無料相談／見学受付中
+          無料相談・見学に申し込む
         </span>
         <MessageCirclePlus className="ml-1" />
       </button>

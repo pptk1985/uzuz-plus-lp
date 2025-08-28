@@ -1,10 +1,12 @@
 import React from 'react';
 import ColourfulText from '@/components/ui/colourful-text';
 import { TextGenerateEffect } from '../ui/text-generate-effect';
+import Image from 'next/image';
+import { Separator } from '@/components/ui/separator';
 
 import BgImg from '@/public/images/uzuzplus/IMG_2607.png';
 import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
-import Image from 'next/image';
+import { Link, MessageCirclePlus } from 'lucide-react';
 
 export default function Closing() {
   return (
@@ -18,34 +20,32 @@ export default function Closing() {
         }}
       >
         <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 gap-4 justify-center items-end w-full h-full">
-            <div className="h-full flex justify-left items-end">
-              <div className="text-white text-base sm:text-2xl font-bold tracking-wide">
-                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 py-1 mb-1 mr-2 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
-                  途中途中途中途中
-                </span>
-                <span className="inline-block text-center bg-orange-500/60 border border-orange-500 rounded-full px-3 pr-2 py-1 mb-1 font-zen-maru animate-wiggle animate-twice animate-delay-1000">
-                  途中途中途中途中
-                </span>
-                <span className="inline-block text-right ml-2">に特化！</span>
+          <div className="grid grid-cols-2 gap-4 justify-center items-start w-full h-full">
+            <div className="col-span-2 h-full flex justify-center items-center">
+              <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
+                運営会社｜UZUZ Plus
+              </h2>
+            </div>
+            <div className="col-span-2">
+              <div className="text-white text-xs sm:text-lg bg-black/75 p-3 sm:p-6 border">
+                UZUZ
+                Plusでは基本的な就労移行支援に加え、強みである「8万人以上に展開した就職・転職ノウハウ」「ITスキル学習支援」「一人ひとりの特性やペースに合わせた安心の個別サポート」を活かし、あなたが“ウズウズ働く”ための一歩を後押しします。
               </div>
             </div>
-            <div className="h-full flex justify-center items-center"></div>
-            <div className="col-span-2">
-              <h2 className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-white leading-snug mb-4">
+            <div className="col-span-2 h-full flex flex-col justify-center items-center">
+              <div className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-white leading-snug mb-4">
                 <span className="bg-white px-3 mr-2">
-                  <ColourfulText text="途中途中" />
+                  <ColourfulText text="無料相談" />
                 </span>
-                <span className="text-2xl sm:text-5xl">も、</span>
+                ・
                 <span className="bg-white px-3 mr-2">
-                  <ColourfulText text="だよだよ" />
+                  <ColourfulText text="無料見学" />
                 </span>
-                <span className="text-2xl sm:text-5xl">も、</span>
                 <br />
-                諦めない。
-              </h2>
-              <div className="bg-slate-950 px-3 py-1.5 inline-block mb-4 items-center">
-                <TextGenerateEffect words="病気・障害 がある方向けの 『就労移行支援』 サービス" />
+                <div className="text-center">受付中です！</div>
+              </div>
+              <div className="text-white text-base sm:text-2xl font-bold">
+                まずはご相談・見学のみでもOKです。お気軽にお申し込みください。
               </div>
             </div>
           </div>
@@ -57,14 +57,17 @@ export default function Closing() {
         <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
-              <div className="text-center space-y-2 sm:space-y-3 bg-white/75 p-3 sm:p-6 border">
-                <div className="text-sm sm:text-xl font-semibold">
-                  病気・障害があっても、 誰もがウズウズ働ける世の中をつくる
+              <div className="space-y-1 sm:space-y-2 bg-white/75 p-2 sm:p-4 border">
+                <div className="text-center text-sm sm:text-xl font-semibold">
+                  株式会社UZUZ Plus
                 </div>
-                <div className="text-xs sm:text-base">
-                  どんな壁があってもウズウズ働けるのが「当たり前」の社会へ。
-                  その理想を現実に変えるため、私たちは一人ひとりと向き合い続けます。
-                </div>
+                <ul className="text-xs sm:text-base">
+                  <li className="flex items-center">06-7167-2222</li>
+                  <li className="flex items-center">support@uzuz-plus.jp</li>
+                  <li className="flex items-center">
+                    〒530-0052 大阪府大阪市北区南扇町1番5号 UAKビル2F
+                  </li>
+                </ul>
               </div>
             </div>
             <div className="h-full flex flex-col justify-center items-center">
@@ -75,9 +78,42 @@ export default function Closing() {
                 height={400}
                 className="sm:p-2 [filter:drop-shadow(2px_1px_0px_#94a3b8)] sm:[filter:drop-shadow(4px_2px_0px_#94a3b8)]"
               />
-              <div className="text-center text-xxs sm:text-xs mt-1">
-                【ウズウズプラス】病気・障害がある方向けの就労移行支援サービス
-              </div>
+              <Separator className="my-1 sm:my-3" />
+              <ul className="text-xs sm:text-sm text-blue-700 font-bold">
+                <li className="inline-block mr-1 sm:mr-3">
+                  <a
+                    href="https://uzuz-plus.jp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-75"
+                  >
+                    <Link className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 pb-0.5 mr-px" />
+                    HP
+                  </a>
+                </li>
+                <li className="inline-block mr-1 sm:mr-3">
+                  <a
+                    href="https://uzuz-plus.jp/company/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-75"
+                  >
+                    <Link className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 pb-0.5 mr-px" />
+                    会社概要
+                  </a>
+                </li>
+                <li className="inline-block mr-1 sm:mr-3">
+                  <a
+                    href="https://uzuz-plus.jp/privacy-policy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-75"
+                  >
+                    <Link className="inline-block w-3.5 h-3.5 sm:w-4 sm:h-4 pb-0.5 mr-px" />
+                    個人情報保護方針
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
