@@ -2,7 +2,7 @@ import React from 'react';
 import ColourfulText from '@/components/ui/colourful-text';
 import { TextGenerateEffect } from '../ui/text-generate-effect';
 
-import BgImg from '@/public/images/uzuzplus/future.webp';
+import BgImg from '@/public/images/uzuzplus/IMG_2607.png';
 import Logo from '@/public/images/uzuzplus/logo_uzuzplus.svg';
 import Image from 'next/image';
 
