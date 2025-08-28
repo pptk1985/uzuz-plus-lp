@@ -4,7 +4,7 @@ import RegistrationForm from '@/components/LP/RegistrationForm';
 
 import BgImg from '@/public/images/uzuzplus/539641126_1200x800.png';
 import CornerImg from '@/public/images/uzuzplus/logo_uzuzplus-w.svg';
-import { MessageCirclePlus } from 'lucide-react';
+// import { MessageCirclePlus } from 'lucide-react';
 
 export default function Registration() {
   return (
