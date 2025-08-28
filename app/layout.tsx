@@ -15,9 +15,9 @@ import {
 // import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
-  title: 'キャリエモン - プロのキャリアサポートが受けられる！',
-  description:
-    '「キャリエモン」はプロが無料で相談に乗ってくれる、日本最大級のキャリア相談サイトです。また、キャリアサポートなどのサービスも行っています。',
+  title:
+    'UZUZ Plus｜IT学習や一般就職に強い就労移行支援サービス - 病気・障害がある方向けの就労移行支援サービス｜ウズウズプラス',
+  description: '病気・障害がある方向けの就労移行支援サービス｜ウズウズプラス',
 };
 
 export default function RootLayout({

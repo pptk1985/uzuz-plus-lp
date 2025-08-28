@@ -72,7 +72,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <div className="h-full flex justify-center items-center">
+            <div className="h-full flex flex-col justify-center items-center">
               <Image
                 src={Logo}
                 alt="20代の就職を徹底サポート！ウズウズ｜株式会社UZUZ"
@@ -80,6 +80,9 @@ export default function Hero() {
                 height={400}
                 className="sm:p-2 [filter:drop-shadow(2px_1px_0px_#94a3b8)] sm:[filter:drop-shadow(4px_2px_0px_#94a3b8)]"
               />
+              <div className="text-center text-xxs sm:text-xs mt-1">
+                【ウズウズプラス】病気・障害がある方向けの就労移行支援サービス
+              </div>
             </div>
           </div>
         </div>

@@ -237,7 +237,7 @@ const Feedbacks: React.FC = () => {
                         className="drop-shadow-lg w-10 h-10 sm:w-14 sm:h-14 mx-auto"
                       />
                     </div>
-                    <div className="text-[10px] sm:text-xs">
+                    <div className="text-xxs sm:text-xs">
                       <div className="flex items-baseline">
                         <span className="">年収：</span>
                         <span className="font-mono text-sm sm:text-xl font-bold leading-1">

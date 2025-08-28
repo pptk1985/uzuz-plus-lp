@@ -83,7 +83,7 @@ export default function SupportFlow() {
               <div className="bg-white/90 w-full max-w-24 sm:max-w-36 aspect-square rounded-full flex items-center justify-center font-yusei-magic text-sm sm:text-xl text-center p-1 sm:p-2 mb-1 sm:mb-2">
                 {step.title}
               </div>
-              <div className="text-[9px] sm:text-base font-normal sm:font-bold text-white">
+              <div className="text-xxs sm:text-base font-normal sm:font-bold text-white">
                 {step.description}
               </div>
             </div>

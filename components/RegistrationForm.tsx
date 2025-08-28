@@ -116,7 +116,7 @@ const RegistrationForm: React.FC = () => {
                 />
                 <span className="mx-auto my-1">
                   {item.label}
-                  <span className="block font-normal text-[10px]">
+                  <span className="block font-normal text-xxs">
                     {item.memo}
                   </span>
                 </span>

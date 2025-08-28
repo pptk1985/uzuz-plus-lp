@@ -62,7 +62,7 @@ export default function Pricing() {
             <div className="col-span-2 border h-full flex flex-col justify-center items-center text-xs sm:text-base bg-white p-2">
               市町村民税課税世帯(所得割16万円(※2)未満)
               <br />
-              <span className="text-[10px] sm:text-sm">
+              <span className="text-xxs sm:text-sm">
                 ※入所施設利用者(20歳以上)、グループホーム利用者を除きます(※3)
               </span>
             </div>

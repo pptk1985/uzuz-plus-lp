@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'zen-maru': ['var(--zen-maru-gothic-font)', 'sans-serif'],
-        'zen-kaku': ['var(--zen-kaku-gothic-new-font)', 'sans-serif'],
+        'zen-kaku': ['var(--zen-kaku-gothic-font)', 'sans-serif'],
         'mplus1p': ['var(--mplus1p-font)', 'sans-serif'],
         'mplus1code': ['var(--mplus1code-font)', 'monospace'],
         'mplus-rounded1c': ['var(--mplus-rounded1c-font)', 'sans-serif'],

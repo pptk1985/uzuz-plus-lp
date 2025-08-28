@@ -209,6 +209,11 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* カスタムフォントサイズクラス */
+.text-xxs {
+  font-size: 0.625rem;   /* 10px */
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
