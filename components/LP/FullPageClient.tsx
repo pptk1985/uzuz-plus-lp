@@ -8,6 +8,7 @@ import DotNavigation from '../DotNavigation';
 import FixedBtn from '../FixedBtn';
 
 import Hero from '@/components/LP/Hero';
+import Registration from '@/components/LP/Registration';
 import Nayami from '@/components/LP/Nayami';
 import Reason from '@/components/LP/Reason';
 import Program from '@/components/LP/Program';
@@ -18,6 +19,7 @@ import Closing from '@/components/LP/Closing';
 
 const sectionComponents: Section[] = [
   { id: 'hero', component: Hero },
+  { id: 'registration', component: Registration },
   { id: 'nayami', component: Nayami },
   { id: 'reason', component: Reason },
   { id: 'program', component: Program },

@@ -47,7 +47,7 @@ export default function FAQ() {
       <div
         id="faq"
         // h-dvhでビューポート高さを100%にする
-        className="h-dvh bg-cover bg-center bg-teal-500 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18"
+        className="h-dvh bg-cover bg-center bg-teal-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18"
         style={{
           backgroundImage: `url(${BgImg.src})`,
           clipPath: 'circle(60% at 50% 56%)',
