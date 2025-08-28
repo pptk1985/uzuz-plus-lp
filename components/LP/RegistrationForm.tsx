@@ -15,12 +15,14 @@ export default function RegistrationForm() {
   } = useForm<Form>();
 
   const onSubmit = async (values: Form) => {
+    const referer = document.referrer || window.location.href || '';
+
     const payload = new URLSearchParams({
       name: values.name,
       email: values.email,
-      company: values.company ?? '', // honeypot: 触られたら bot と判定
+      company: values.company ?? '',
       ua: navigator.userAgent,
-      referer: document.referrer || '',
+      referer: referer,
     });
 
     const res = await fetch(ENDPOINT, {
