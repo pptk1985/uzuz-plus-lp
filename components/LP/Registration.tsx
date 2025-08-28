@@ -30,7 +30,7 @@ export default function Registration() {
         </div>
 
         <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-4 sm:mx-auto">
-          <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
+          {/* <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
             無料相談・見学
             <br />
             申し込みフォーム
@@ -38,13 +38,8 @@ export default function Registration() {
           </h2>
           <div className="text-center text-white text-sm sm:text-lg font-semibold mb-4">
             まずはご相談・見学のみでもOKです。お気軽にお申し込みください。
-          </div>
-          <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
-            <div>
-              下の方 左 病気・障害がある方向けの 就労移行支援サービス 右 上 ロゴ
-              下 病気・障害がある方向けの 就労移行支援サービス
-              ここの背景を大阪のピンでも良いかも
-            </div>
+          </div> */}
+          <div className="grid grid-cols-1 gap-3 sm:gap-6 justify-center items-center w-full h-full">
             <RegistrationForm />
           </div>
         </div>
