@@ -20,7 +20,6 @@ export default function RegistrationForm() {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm<Form>();
 
