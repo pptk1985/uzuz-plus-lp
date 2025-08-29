@@ -22,7 +22,7 @@ export default function Closing() {
           <div className="grid grid-cols-2 gap-4 justify-center items-start w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
-                運営会社｜UZUZ Plus
+                運営｜株式会社UZUZ Plus
               </h2>
             </div>
             <div className="col-span-2">
@@ -32,7 +32,7 @@ export default function Closing() {
               </div>
             </div>
             <div className="col-span-2 h-full flex flex-col justify-center items-center">
-              <div className="animate-flip-up text-3xl sm:text-6xl font-extrabold text-white leading-snug mb-4">
+              <div className="animate-flip-up text-2xl sm:text-5xl font-extrabold text-white leading-snug mb-4">
                 <span className="bg-white px-3 mr-2">
                   <ColourfulText text="無料相談" />
                 </span>
