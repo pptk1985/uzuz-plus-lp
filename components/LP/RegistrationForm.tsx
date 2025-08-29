@@ -83,9 +83,9 @@ export default function RegistrationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-0">
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           お名前（漢字）<span className="text-red-500">※</span>
         </label>
         <input
@@ -104,7 +104,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           お名前（ふりがな）<span className="text-red-500">※</span>
         </label>
         <input
@@ -129,7 +129,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           メールアドレス<span className="text-red-500">※</span>
         </label>
         <input
@@ -153,7 +153,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           電話番号<span className="text-red-500">※</span>
         </label>
         <input
@@ -181,7 +181,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           年代<span className="text-red-500">※</span>
         </label>
         <div className="flex flex-wrap gap-3">
@@ -214,7 +214,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           面談方法<span className="text-red-500">※</span>
         </label>
         <div className="flex flex-wrap gap-3">
@@ -245,7 +245,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           興味のあるカリキュラム<span className="text-red-500">※</span>
         </label>
         <div className="flex flex-wrap gap-3">
@@ -284,7 +284,7 @@ export default function RegistrationForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
+        <label className="block text-sm font-medium mb-1">
           事前に伝えたいこと
         </label>
         <textarea
