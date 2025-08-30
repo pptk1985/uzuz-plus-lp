@@ -25,13 +25,19 @@ const formSchema = z.object({
   furigana: z
     .string()
     .min(1, '必須です')
-    .regex(/^[あ-んー\s]+$/, 'ひらがなで入力してください'),
-  email: z.string().min(1, '必須です').email('メール形式が不正です'),
+    .refine(/^[あ-んー\s]+$/.test, 'ひらがなで入力してください'),
+  email: z
+    .string()
+    .min(1, '必須です')
+    .refine(
+      (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
+      'メール形式が不正です'
+    ),
   phone: z
     .string()
     .min(1, '必須です')
-    .regex(
-      /^[0-9]{10,11}$/,
+    .refine(
+      /^[0-9]{10,11}$/.test,
       'ハイフンなしで10桁または11桁の数字を入力してください'
     ),
   ageGroup: z.string().min(1, '必須です'),
@@ -112,7 +118,10 @@ export default function RegistrationForm2() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-2/3 min-w-80 mx-auto space-y-3 bg-white p-4 rounded-lg shadow"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -202,7 +211,7 @@ export default function RegistrationForm2() {
           control={form.control}
           name="ageGroup"
           render={({ field }) => (
-            <FormItem className="space-y-3">
+            <FormItem>
               <FormLabel>
                 年代<span className="text-red-500">※</span>
               </FormLabel>
@@ -217,18 +226,16 @@ export default function RegistrationForm2() {
                     { value: '30代', label: '30代' },
                     { value: '40代', label: '40代' },
                     { value: '50代', label: '50代' },
-                    { value: '60代', label: '60代（64歳まで）' },
+                    { value: '60代', label: '60代 (64歳まで)' },
                   ].map((option) => (
                     <FormItem
                       key={option.value}
-                      className="flex items-center space-x-2"
+                      className="flex items-center gap-2 space-y-0"
                     >
                       <FormControl>
                         <RadioGroupItem value={option.value} />
                       </FormControl>
-                      <FormLabel className="text-sm font-normal whitespace-nowrap">
-                        {option.label}
-                      </FormLabel>
+                      <FormLabel>{option.label}</FormLabel>
                     </FormItem>
                   ))}
                 </RadioGroup>
@@ -242,7 +249,7 @@ export default function RegistrationForm2() {
           control={form.control}
           name="meetingMethod"
           render={({ field }) => (
-            <FormItem className="space-y-3">
+            <FormItem>
               <FormLabel>
                 面談方法<span className="text-red-500">※</span>
               </FormLabel>
@@ -259,14 +266,12 @@ export default function RegistrationForm2() {
                   ].map((option) => (
                     <FormItem
                       key={option.value}
-                      className="flex items-center space-x-2"
+                      className="flex items-center gap-2 space-y-0"
                     >
                       <FormControl>
                         <RadioGroupItem value={option.value} />
                       </FormControl>
-                      <FormLabel className="text-sm font-normal whitespace-nowrap">
-                        {option.label}
-                      </FormLabel>
+                      <FormLabel className="!mt-0">{option.label}</FormLabel>
                     </FormItem>
                   ))}
                 </RadioGroup>
@@ -282,45 +287,45 @@ export default function RegistrationForm2() {
           render={({ field }) => (
             <FormItem>
               <div className="mb-4">
-                <FormLabel className="text-base">
+                <FormLabel>
                   興味のあるカリキュラム<span className="text-red-500">※</span>
                 </FormLabel>
                 <FormDescription>1つ以上選択してください</FormDescription>
               </div>
-              {[
-                { value: 'job-support', label: '就職サポート' },
-                { value: 'it-skills', label: 'ITスキル' },
-                { value: 'office-skills', label: '事務スキル' },
-                {
-                  value: 'communication-skills',
-                  label: 'コミュニケーションスキル',
-                },
-              ].map((option) => (
-                <FormItem
-                  key={option.value}
-                  className="flex flex-row items-start space-x-3 space-y-0"
-                >
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value?.includes(option.value)}
-                      onCheckedChange={(checked) => {
-                        if (checked) {
-                          field.onChange([...field.value, option.value]);
-                        } else {
-                          field.onChange(
-                            field.value?.filter(
-                              (value) => value !== option.value
-                            )
-                          );
-                        }
-                      }}
-                    />
-                  </FormControl>
-                  <FormLabel className="text-sm font-normal">
-                    {option.label}
-                  </FormLabel>
-                </FormItem>
-              ))}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { value: 'job-support', label: '就職サポート' },
+                  { value: 'it-skills', label: 'ITスキル' },
+                  { value: 'office-skills', label: '事務スキル' },
+                  {
+                    value: 'communication-skills',
+                    label: 'コミュニケーションスキル',
+                  },
+                ].map((option) => (
+                  <FormItem
+                    key={option.value}
+                    className="flex items-center gap-2 space-y-0"
+                  >
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value?.includes(option.value)}
+                        onCheckedChange={(checked) => {
+                          if (checked) {
+                            field.onChange([...field.value, option.value]);
+                          } else {
+                            field.onChange(
+                              field.value?.filter(
+                                (value) => value !== option.value
+                              )
+                            );
+                          }
+                        }}
+                      />
+                    </FormControl>
+                    <FormLabel>{option.label}</FormLabel>
+                  </FormItem>
+                ))}
+              </div>
               <FormMessage />
             </FormItem>
           )}

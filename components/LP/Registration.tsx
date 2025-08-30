@@ -1,9 +1,9 @@
 import React from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import RegistrationForm from '@/components/LP/RegistrationForm';
 
 import BgImg from '@/public/images/uzuzplus/registration_1200x800.png';
-import Map from '@/public/images/uzuzplus/2261336337-pin.png';
+// import Map from '@/public/images/uzuzplus/2261336337-pin.png';
 
 export default function Registration() {
   return (
@@ -31,7 +31,7 @@ export default function Registration() {
 
       {/* 下半分：bg-logo-patternを表示 */}
       <div className="h-[33dvh] bg-dot px-2 sm:px-20 pb-14 sm:pb-18">
-        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
+        {/* <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex flex-col justify-center items-center">
               <div className="text-center text-sm sm:text-xl font-semibold underline decoration-orange-300 decoration-6">
@@ -49,7 +49,7 @@ export default function Registration() {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
