@@ -3,8 +3,6 @@ import Image from 'next/image';
 import RegistrationForm from '@/components/LP/RegistrationForm';
 
 import BgImg from '@/public/images/uzuzplus/registration_1200x800.png';
-import CornerImg from '@/public/images/uzuzplus/logo_uzuzplus-w.svg';
-import { MessageCirclePlus } from 'lucide-react';
 import Map from '@/public/images/uzuzplus/2261336337-pin.png';
 
 export default function Registration() {
