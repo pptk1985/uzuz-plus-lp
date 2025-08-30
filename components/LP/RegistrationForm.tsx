@@ -1,29 +1,66 @@
 'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-type Form = {
-  name: string;
-  furigana: string;
-  email: string;
-  phone: string;
-  ageGroup: string;
-  meetingMethod: string;
-  curriculum: string[];
-  message: string;
-};
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-// 環境変数
+// フォームのスキーマ定義
+const formSchema = z.object({
+  name: z.string().min(1, '必須です'),
+  furigana: z
+    .string()
+    .min(1, '必須です')
+    .regex(/^[あ-んー\s]+$/, 'ひらがなで入力してください'),
+  email: z.string().min(1, '必須です').email('メール形式が不正です'),
+  phone: z
+    .string()
+    .min(1, '必須です')
+    .regex(
+      /^[0-9]{10,11}$/,
+      'ハイフンなしで10桁または11桁の数字を入力してください'
+    ),
+  ageGroup: z.string().min(1, '必須です'),
+  meetingMethod: z.string().min(1, '必須です'),
+  curriculum: z.array(z.string()).min(1, '1つ以上選択してください'),
+  message: z.string().max(1000, '1000文字以内で入力してください').optional(),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+// 環境変数（GASのエンドポイント）
 const ENDPOINT = process.env.NEXT_PUBLIC_GAS_ENDPOINT!;
 
-export default function RegistrationForm() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<Form>();
+export default function RegistrationForm2() {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      furigana: '',
+      email: '',
+      phone: '',
+      ageGroup: '',
+      meetingMethod: '',
+      curriculum: [],
+      message: '',
+    },
+  });
 
-  const onSubmit = async (values: Form) => {
+  const onSubmit = async (values: FormValues) => {
     const referer = document.referrer || window.location.href || '';
 
     const payload = new URLSearchParams({
@@ -34,7 +71,7 @@ export default function RegistrationForm() {
       ageGroup: values.ageGroup,
       meetingMethod: values.meetingMethod,
       curriculum: values.curriculum.join(', '),
-      message: values.message,
+      message: values.message || '',
       ua: navigator.userAgent,
       referer,
     });
@@ -70,257 +107,261 @@ export default function RegistrationForm() {
     }
 
     // 成功とみなす
-    reset({
-      name: '',
-      furigana: '',
-      email: '',
-      phone: '',
-      ageGroup: '',
-      meetingMethod: '',
-      curriculum: [],
-      message: '',
-    });
+    form.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-0">
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          お名前（漢字）<span className="text-red-500">※</span>
-        </label>
-        <input
-          autoComplete="name"
-          aria-invalid={!!errors.name || undefined}
-          aria-describedby={errors.name ? 'name-error' : undefined}
-          {...register('name', { required: '必須です' })}
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="例：田中太郎"
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                お名前（漢字）<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  autoComplete="name"
+                  placeholder="例：田中太郎"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        {errors.name && (
-          <small id="name-error" className="text-red-600 text-sm">
-            {errors.name.message}
-          </small>
-        )}
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          お名前（ふりがな）<span className="text-red-500">※</span>
-        </label>
-        <input
-          autoComplete="off"
-          aria-invalid={!!errors.furigana || undefined}
-          aria-describedby={errors.furigana ? 'furigana-error' : undefined}
-          {...register('furigana', {
-            required: '必須です',
-            pattern: {
-              value: /^[あ-んー\s]+$/,
-              message: 'ひらがなで入力してください',
-            },
-          })}
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="例：たなかたろう"
+        <FormField
+          control={form.control}
+          name="furigana"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                お名前（ふりがな）<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  autoComplete="off"
+                  placeholder="例：たなかたろう"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        {errors.furigana && (
-          <small id="furigana-error" className="text-red-600 text-sm">
-            {errors.furigana.message}
-          </small>
-        )}
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          メールアドレス<span className="text-red-500">※</span>
-        </label>
-        <input
-          type="email"
-          autoComplete="email"
-          inputMode="email"
-          aria-invalid={!!errors.email || undefined}
-          aria-describedby={errors.email ? 'email-error' : undefined}
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-          {...register('email', {
-            required: '必須です',
-            pattern: { value: /\S+@\S+\.\S+/, message: 'メール形式が不正です' },
-          })}
-          placeholder="例：example@email.com"
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                メールアドレス<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  placeholder="例：example@email.com"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        {errors.email && (
-          <small id="email-error" className="text-red-600 text-sm">
-            {errors.email.message}
-          </small>
-        )}
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          電話番号<span className="text-red-500">※</span>
-        </label>
-        <input
-          type="tel"
-          autoComplete="tel"
-          inputMode="tel"
-          aria-invalid={!!errors.phone || undefined}
-          aria-describedby={errors.phone ? 'phone-error' : undefined}
-          {...register('phone', {
-            required: '必須です',
-            pattern: {
-              value: /^[0-9]{10,11}$/,
-              message: 'ハイフンなしで10桁または11桁の数字を入力してください',
-            },
-          })}
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="例：09012345678"
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                電話番号<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  placeholder="例：09012345678"
+                />
+              </FormControl>
+              <FormDescription>ハイフンなし</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <small className="text-gray-600 text-sm">ハイフンなし</small>
-        {errors.phone && (
-          <small id="phone-error" className="text-red-600 text-sm block mt-1">
-            {errors.phone.message}
-          </small>
-        )}
-      </div>
 
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          年代<span className="text-red-500">※</span>
-        </label>
-        <div className="flex flex-wrap gap-3">
-          {[
-            { value: '10-20代', label: '10~20代' },
-            { value: '30代', label: '30代' },
-            { value: '40代', label: '40代' },
-            { value: '50代', label: '50代' },
-            { value: '60代', label: '60代（64歳まで）' },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className="flex items-center whitespace-nowrap"
-            >
-              <input
-                type="radio"
-                value={option.value}
-                {...register('ageGroup', { required: '必須です' })}
-                className="mr-2"
-              />
-              <span className="text-sm">{option.label}</span>
-            </label>
-          ))}
-        </div>
-        {errors.ageGroup && (
-          <small className="text-red-600 text-sm block mt-1">
-            {errors.ageGroup.message}
-          </small>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          面談方法<span className="text-red-500">※</span>
-        </label>
-        <div className="flex flex-wrap gap-3">
-          {[
-            { value: 'online', label: 'オンライン' },
-            { value: 'face-to-face', label: '対面' },
-            { value: 'phone', label: '電話' },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className="flex items-center whitespace-nowrap"
-            >
-              <input
-                type="radio"
-                value={option.value}
-                {...register('meetingMethod', { required: '必須です' })}
-                className="mr-2"
-              />
-              <span className="text-sm">{option.label}</span>
-            </label>
-          ))}
-        </div>
-        {errors.meetingMethod && (
-          <small className="text-red-600 text-sm block mt-1">
-            {errors.meetingMethod.message}
-          </small>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          興味のあるカリキュラム<span className="text-red-500">※</span>
-        </label>
-        <div className="flex flex-wrap gap-3">
-          {[
-            { value: 'job-support', label: '就職サポート' },
-            { value: 'it-skills', label: 'ITスキル' },
-            { value: 'office-skills', label: '事務スキル' },
-            {
-              value: 'communication-skills',
-              label: 'コミュニケーションスキル',
-            },
-          ].map((option) => (
-            <label
-              key={option.value}
-              className="flex items-center whitespace-nowrap"
-            >
-              <input
-                type="checkbox"
-                value={option.value}
-                {...register('curriculum', {
-                  required: '1つ以上選択してください',
-                  validate: (value) =>
-                    value.length > 0 || '1つ以上選択してください',
-                })}
-                className="mr-2"
-              />
-              <span className="text-sm">{option.label}</span>
-            </label>
-          ))}
-        </div>
-        {errors.curriculum && (
-          <small className="text-red-600 text-sm block mt-1">
-            {errors.curriculum.message}
-          </small>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-1">
-          事前に伝えたいこと
-        </label>
-        <textarea
-          {...register('message', {
-            maxLength: {
-              value: 1000,
-              message: '1000文字以内で入力してください',
-            },
-          })}
-          rows={4}
-          className="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-          placeholder="ご質問やご要望など、お気軽にお書きください（任意）"
+        <FormField
+          control={form.control}
+          name="ageGroup"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>
+                年代<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-wrap gap-3"
+                >
+                  {[
+                    { value: '10-20代', label: '10~20代' },
+                    { value: '30代', label: '30代' },
+                    { value: '40代', label: '40代' },
+                    { value: '50代', label: '50代' },
+                    { value: '60代', label: '60代（64歳まで）' },
+                  ].map((option) => (
+                    <FormItem
+                      key={option.value}
+                      className="flex items-center space-x-2"
+                    >
+                      <FormControl>
+                        <RadioGroupItem value={option.value} />
+                      </FormControl>
+                      <FormLabel className="text-sm font-normal whitespace-nowrap">
+                        {option.label}
+                      </FormLabel>
+                    </FormItem>
+                  ))}
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <small className="text-gray-600 text-sm">1000文字まで（任意）</small>
-        {errors.message && (
-          <small className="text-red-600 text-sm block mt-1">
-            {errors.message.message}
-          </small>
+
+        <FormField
+          control={form.control}
+          name="meetingMethod"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>
+                面談方法<span className="text-red-500">※</span>
+              </FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-wrap gap-3"
+                >
+                  {[
+                    { value: 'online', label: 'オンライン' },
+                    { value: 'face-to-face', label: '対面' },
+                    { value: 'phone', label: '電話' },
+                  ].map((option) => (
+                    <FormItem
+                      key={option.value}
+                      className="flex items-center space-x-2"
+                    >
+                      <FormControl>
+                        <RadioGroupItem value={option.value} />
+                      </FormControl>
+                      <FormLabel className="text-sm font-normal whitespace-nowrap">
+                        {option.label}
+                      </FormLabel>
+                    </FormItem>
+                  ))}
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="curriculum"
+          render={({ field }) => (
+            <FormItem>
+              <div className="mb-4">
+                <FormLabel className="text-base">
+                  興味のあるカリキュラム<span className="text-red-500">※</span>
+                </FormLabel>
+                <FormDescription>1つ以上選択してください</FormDescription>
+              </div>
+              {[
+                { value: 'job-support', label: '就職サポート' },
+                { value: 'it-skills', label: 'ITスキル' },
+                { value: 'office-skills', label: '事務スキル' },
+                {
+                  value: 'communication-skills',
+                  label: 'コミュニケーションスキル',
+                },
+              ].map((option) => (
+                <FormItem
+                  key={option.value}
+                  className="flex flex-row items-start space-x-3 space-y-0"
+                >
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value?.includes(option.value)}
+                      onCheckedChange={(checked) => {
+                        if (checked) {
+                          field.onChange([...field.value, option.value]);
+                        } else {
+                          field.onChange(
+                            field.value?.filter(
+                              (value) => value !== option.value
+                            )
+                          );
+                        }
+                      }}
+                    />
+                  </FormControl>
+                  <FormLabel className="text-sm font-normal">
+                    {option.label}
+                  </FormLabel>
+                </FormItem>
+              ))}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>事前に伝えたいこと</FormLabel>
+              <FormControl>
+                <Textarea
+                  {...field}
+                  rows={4}
+                  placeholder="ご質問やご要望など、お気軽にお書きください（任意）"
+                  className="resize-none"
+                />
+              </FormControl>
+              <FormDescription>1000文字まで（任意）</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button
+          type="submit"
+          disabled={form.formState.isSubmitting}
+          className="w-full"
+        >
+          {form.formState.isSubmitting ? '送信中…' : '登録する'}
+        </Button>
+
+        {form.formState.isSubmitSuccessful && (
+          <p className="text-green-700 text-center py-4 bg-green-50 rounded">
+            ご登録ありがとうございました！
+            <br />
+            後日、担当者よりご連絡いたします。
+          </p>
         )}
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full rounded px-4 py-3 bg-blue-600 text-white font-medium hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
-      >
-        {isSubmitting ? '送信中…' : '登録する'}
-      </button>
-
-      {isSubmitSuccessful && (
-        <p className="text-green-700 text-center py-4 bg-green-50 rounded">
-          ご登録ありがとうございました！
-          <br />
-          後日、担当者よりご連絡いたします。
-        </p>
-      )}
-    </form>
+      </form>
+    </Form>
   );
 }

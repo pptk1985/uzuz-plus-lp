@@ -1,0 +1,1209 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+# Shadcd ui のコンポーネントを利用したフォームを構築する方法まとめ
+
+---
+
+title: React Hook Form
+description: Building forms with React Hook Form and Zod.
+links:
+doc: https://react-hook-form.com
+
+---
+
+Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
+
+Well-designed HTML forms are:
+
+- Well-structured and semantically correct.
+- Easy to use and navigate (keyboard).
+- Accessible with ARIA attributes and proper labels.
+- Has support for client and server side validation.
+- Well-styled and consistent with the rest of the application.
+
+In this guide, we will take a look at building forms with [`react-hook-form`](https://react-hook-form.com/) and [`zod`](https://zod.dev). We're going to use a `<FormField>` component to compose accessible forms using Radix UI components.
+
+## Features
+
+The `<Form />` component is a wrapper around the `react-hook-form` library. It provides a few things:
+
+- Composable components for building forms.
+- A `<FormField />` component for building controlled form fields.
+- Form validation using `zod`.
+- Handles accessibility and error messages.
+- Uses `React.useId()` for generating unique IDs.
+- Applies the correct `aria` attributes to form fields based on states.
+- Built to work with all Radix UI components.
+- Bring your own schema library. We use `zod` but you can use anything you want.
+- **You have full control over the markup and styling.**
+
+## Anatomy
+
+```tsx showLineNumbers
+<Form>
+  <FormField
+    control={...}
+    name="..."
+    render={() => (
+      <FormItem>
+        <FormLabel />
+        <FormControl>
+          { /* Your form field */}
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+</Form>
+```
+
+## Example
+
+```tsx showLineNumbers
+const form = useForm()
+
+<FormField
+  control={form.control}
+  name="username"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Username</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" {...field} />
+      </FormControl>
+      <FormDescription>This is your public display name.</FormDescription>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+```
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<Steps>
+
+### Command
+
+```bash
+npx shadcn@latest add form
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="form" title="components/ui/form.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+<Steps>
+
+### Create a form schema
+
+Define the shape of your form using a Zod schema. You can read more about using Zod in the [Zod documentation](https://zod.dev).
+
+```tsx showLineNumbers title="components/example-form.tsx" {3,5-7}
+'use client';
+
+import { z } from 'zod';
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+});
+```
+
+### Define a form
+
+Use the `useForm` hook from `react-hook-form` to create a form.
+
+```tsx showLineNumbers title="components/example-form.tsx" {3-4,14-20,22-27}
+'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: 'Username must be at least 2 characters.',
+  }),
+});
+
+export function ProfileForm() {
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: '',
+    },
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
+}
+```
+
+Since `FormField` is using a controlled component, you need to provide a default value for the field. See the [React Hook Form docs](https://react-hook-form.com/docs/usecontroller) to learn more about controlled components.
+
+### Build your form
+
+We can now use the `<Form />` components to build our form.
+
+```tsx showLineNumbers title="components/example-form.tsx" {7-17,28-50}
+'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: 'Username must be at least 2 characters.',
+  }),
+});
+
+export function ProfileForm() {
+  // ...
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+```
+
+### Done
+
+That's it. You now have a fully accessible form that is type-safe with client-side validation.
+
+<ComponentPreview
+  name="input-form"
+  className="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
+/>
+
+</Steps>
+
+## Examples
+
+See the following links for more examples on how to use the `<Form />` component with other components:
+
+- [Checkbox](/docs/components/checkbox#form)
+- [Date Picker](/docs/components/date-picker#form)
+- [Input](/docs/components/input#form)
+- [Radio Group](/docs/components/radio-group#form)
+- [Select](/docs/components/select#form)
+- [Switch](/docs/components/switch#form)
+- [Textarea](/docs/components/textarea#form)
+- [Combobox](/docs/components/combobox#form)
+- [Label](/docs/components/label)
+
+---
+
+title: Button
+description: Displays a button or a component that looks like a button.
+featured: true
+component: true
+
+---
+
+<ComponentPreview name="button-demo" description="A button" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-slot
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="button" title="components/ui/button.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Button } from '@/components/ui/button';
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Link
+
+You can use the `asChild` prop to make another component look like a button. Here's an example of a link that looks like a button.
+
+```tsx showLineNumbers
+import { Link } from 'next/link';
+
+import { Button } from '@/components/ui/button';
+
+export function LinkAsButton() {
+  return (
+    <Button asChild>
+      <Link href="/login">Login</Link>
+    </Button>
+  );
+}
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="button-demo" description="A primary button" />
+
+### Secondary
+
+<ComponentPreview name="button-secondary" description="A secondary button" />
+
+### Destructive
+
+<ComponentPreview
+  name="button-destructive"
+  description="A destructive button"
+/>
+
+### Outline
+
+<ComponentPreview
+  name="button-outline"
+  description="A button using the outline variant."
+/>
+
+### Ghost
+
+<ComponentPreview
+  name="button-ghost"
+  description="A button using the ghost variant"
+/>
+
+### Link
+
+<ComponentPreview
+  name="button-link"
+  description="A button using the link variant."
+/>
+
+### Icon
+
+<ComponentPreview name="button-icon" description="An icon button" />
+
+### With Icon
+
+<ComponentPreview name="button-with-icon" description="A button with an icon" />
+
+### Loading
+
+<ComponentPreview
+  name="button-loading"
+  description="A button with a loading state."
+/>
+
+---
+
+title: Label
+description: Renders an accessible label associated with controls.
+component: true
+links:
+doc: https://www.radix-ui.com/docs/primitives/components/label
+api: https://www.radix-ui.com/docs/primitives/components/label#api-reference
+
+---
+
+<ComponentPreview name="label-demo" description="A label" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add label
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-label
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="label" title="components/ui/label.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Label } from '@/components/ui/label';
+```
+
+```tsx
+<Label htmlFor="email">Your email address</Label>
+```
+
+---
+
+title: Checkbox
+description: A control that allows the user to toggle between checked and not checked.
+component: true
+links:
+doc: https://www.radix-ui.com/docs/primitives/components/checkbox
+api: https://www.radix-ui.com/docs/primitives/components/checkbox#api-reference
+
+---
+
+<ComponentPreview name="checkbox-demo" description="A checkbox" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add checkbox
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-checkbox
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="checkbox" title="components/ui/checkbox.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Checkbox } from '@/components/ui/checkbox';
+```
+
+```tsx
+<Checkbox />
+```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="checkbox-form-multiple" />
+
+---
+
+title: Date Picker
+description: A date picker component with range and presets.
+component: true
+
+---
+
+<ComponentPreview
+  name="calendar-22"
+  title="Date of Birth Picker"
+  description="A calendar with date of birth picker."
+/>
+
+## Installation
+
+The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
+
+See installation instructions for the [Popover](/docs/components/popover#installation) and the [Calendar](/docs/components/calendar#installation) components.
+
+## Usage
+
+```tsx showLineNumbers title="components/example-date-picker.tsx"
+'use client';
+
+import * as React from 'react';
+import { format } from 'date-fns';
+import { Calendar as CalendarIcon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState<Date>();
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          data-empty={!date}
+          className="data-[empty=true]:text-muted-foreground w-[280px] justify-start text-left font-normal"
+        >
+          <CalendarIcon />
+          {date ? format(date, 'PPP') : <span>Pick a date</span>}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0">
+        <Calendar mode="single" selected={date} onSelect={setDate} />
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+See the [React DayPicker](https://react-day-picker.js.org) documentation for more information.
+
+## Examples
+
+### Date of Birth Picker
+
+<ComponentPreview
+  name="calendar-22"
+  title="Date of Birth Picker"
+  description="A calendar with date of birth picker."
+/>
+
+### Picker with Input
+
+<ComponentPreview
+  name="calendar-28"
+  title="Picker with Input"
+  description="A calendar with input and picker."
+/>
+
+### Date and Time Picker
+
+<ComponentPreview
+  name="calendar-24"
+  title="Date and Time Picker"
+  description="A calendar with date and time picker."
+/>
+
+### Natural Language Picker
+
+This component uses the `chrono-node` library to parse natural language dates.
+
+<ComponentPreview
+  name="calendar-29"
+  title="Natural Language Picker"
+  description="A calendar with natural language picker."
+/>
+
+### Form
+
+<ComponentPreview name="date-picker-form" />
+
+---
+
+title: Input
+description: Displays a form input field or a component that looks like an input field.
+component: true
+
+---
+
+<ComponentPreview
+  name="input-demo"
+  className="[&_input]:max-w-xs"
+  description="A form input component."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add input
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="input" title="components/ui/input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Input } from '@/components/ui/input';
+```
+
+```tsx
+<Input />
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview
+  name="input-demo"
+  className="[&_input]:max-w-xs"
+  description="A form input component."
+/>
+
+### File
+
+<ComponentPreview
+  name="input-file"
+  className="[&_input]:max-w-xs"
+  description="A file input component."
+/>
+
+### Disabled
+
+<ComponentPreview
+  name="input-disabled"
+  className="[&_input]:max-w-xs"
+  description="A disabled input component."
+/>
+
+### With Label
+
+<ComponentPreview
+  name="input-with-label"
+  className="[&_input]:max-w-xs"
+  description="An input component with a label."
+/>
+
+### With Button
+
+<ComponentPreview
+  name="input-with-button"
+  className="[&_input]:max-w-xs"
+  description="An input component with a button."
+/>
+
+### Form
+
+<ComponentPreview name="input-form" />
+
+---
+
+title: Radio Group
+description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+component: true
+links:
+doc: https://www.radix-ui.com/docs/primitives/components/radio-group
+api: https://www.radix-ui.com/docs/primitives/components/radio-group#api-reference
+
+---
+
+<ComponentPreview
+  name="radio-group-demo"
+  description="A radio group with 3 items."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add radio-group
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-radio-group
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="radio-group" title="components/ui/radio-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+```
+
+```tsx showLineNumbers
+<RadioGroup defaultValue="option-one">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">Option One</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-two" id="option-two" />
+    <Label htmlFor="option-two">Option Two</Label>
+  </div>
+</RadioGroup>
+```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="radio-group-form" />
+
+---
+
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+component: true
+featured: true
+links:
+doc: https://www.radix-ui.com/docs/primitives/components/select
+api: https://www.radix-ui.com/docs/primitives/components/select#api-reference
+
+---
+
+<ComponentPreview
+  name="select-demo"
+  description="A select component with a list of options."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add select
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-select
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="select" title="components/ui/select.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+```
+
+```tsx showLineNumbers
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Examples
+
+### Scrollable
+
+<ComponentPreview
+  name="select-scrollable"
+  description="A select component with a scrollable list of options."
+/>
+
+### Form
+
+<ComponentPreview name="select-form" />
+
+---
+
+title: Switch
+description: A control that allows the user to toggle between checked and not checked.
+component: true
+links:
+doc: https://www.radix-ui.com/docs/primitives/components/switch
+api: https://www.radix-ui.com/docs/primitives/components/switch#api-reference
+
+---
+
+<ComponentPreview name="switch-demo" description="A switch component." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add switch
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-switch
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="switch" title="components/ui/switch.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Switch } from '@/components/ui/switch';
+```
+
+```tsx
+<Switch />
+```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="switch-form" />
+
+---
+
+title: Textarea
+description: Displays a form textarea or a component that looks like a textarea.
+component: true
+
+---
+
+<ComponentPreview name="textarea-demo" description="A textarea" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add textarea
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="textarea" title="components/ui/textarea.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Textarea } from '@/components/ui/textarea';
+```
+
+```tsx
+<Textarea />
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="textarea-demo" description="A textarea" />
+
+### Disabled
+
+<ComponentPreview name="textarea-disabled" description="A disabled textarea" />
+
+### With Label
+
+<ComponentPreview
+  name="textarea-with-label"
+  className="[&_div.grid]:w-full"
+  description="A textarea with a label"
+/>
+
+### With Text
+
+<ComponentPreview
+  name="textarea-with-text"
+  description="A textarea with text"
+/>
+
+### With Button
+
+<ComponentPreview
+  name="textarea-with-button"
+  description="A textarea with a button"
+/>
+
+### Form
+
+<ComponentPreview name="textarea-form" />
+
+---
+
+title: Combobox
+description: Autocomplete input and command palette with a list of suggestions.
+component: true
+
+---
+
+<ComponentPreview
+  name="combobox-demo"
+  description="A combobox with a list of frameworks."
+/>
+
+## Installation
+
+The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
+
+See installation instructions for the [Popover](/docs/components/popover#installation) and the [Command](/docs/components/command#installation) components.
+
+## Usage
+
+<CodeCollapsibleWrapper>
+
+```tsx showLineNumbers title="components/example-combobox.tsx"
+'use client';
+
+import * as React from 'react';
+import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+
+const frameworks = [
+  {
+    value: 'next.js',
+    label: 'Next.js',
+  },
+  {
+    value: 'sveltekit',
+    label: 'SvelteKit',
+  },
+  {
+    value: 'nuxt.js',
+    label: 'Nuxt.js',
+  },
+  {
+    value: 'remix',
+    label: 'Remix',
+  },
+  {
+    value: 'astro',
+    label: 'Astro',
+  },
+];
+
+export function ExampleCombobox() {
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState('');
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-[200px] justify-between"
+        >
+          {value
+            ? frameworks.find((framework) => framework.value === value)?.label
+            : 'Select framework...'}
+          <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-[200px] p-0">
+        <Command>
+          <CommandInput placeholder="Search framework..." />
+          <CommandList>
+            <CommandEmpty>No framework found.</CommandEmpty>
+            <CommandGroup>
+              {frameworks.map((framework) => (
+                <CommandItem
+                  key={framework.value}
+                  value={framework.value}
+                  onSelect={(currentValue) => {
+                    setValue(currentValue === value ? '' : currentValue);
+                    setOpen(false);
+                  }}
+                >
+                  <CheckIcon
+                    className={cn(
+                      'mr-2 h-4 w-4',
+                      value === framework.value ? 'opacity-100' : 'opacity-0'
+                    )}
+                  />
+                  {framework.label}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+</CodeCollapsibleWrapper>
+
+## Examples
+
+### Combobox
+
+<ComponentPreview
+  name="combobox-demo"
+  description="A combobox with a list of frameworks."
+/>
+
+### Popover
+
+<ComponentPreview name="combobox-popover" />
+
+### Dropdown menu
+
+<ComponentPreview
+  name="combobox-dropdown-menu"
+  description="A combobox in a dropdown menu"
+/>
+
+### Responsive
+
+You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
+
+<ComponentPreview name="combobox-responsive" />
+
+### Form
+
+<ComponentPreview name="combobox-form" />
