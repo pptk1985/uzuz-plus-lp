@@ -32,10 +32,13 @@ export default function Registration() {
 
         {/* コンテンツ */}
         <div className="relative z-10 flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
-          <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
-            無料相談・見学受付中
+          <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-1 sm:mb-4">
+            無料相談・見学 受付中
             <MessageCirclePlus className="w-12 h-12 sm:w-20 sm:h-20 pb-3 sm:pb-5 inline-block" />
           </h2>
+          <div className="text-center text-white text-xs sm:text-lg font-semibold mb-2 sm:mb-4">
+            まずはご相談・見学のみでもOK！お気軽にお申し込みください。
+          </div>
           <div className="grid grid-cols-1 gap-3 sm:gap-6 justify-center items-start w-full h-full">
             <RegistrationForm />
           </div>

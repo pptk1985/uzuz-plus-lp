@@ -632,7 +632,7 @@ export default function RegistrationForm2() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-2/3 min-w-80 mx-auto space-y-3 bg-white p-4 sm:p-6 rounded-lg shadow-lg"
+        className="min-w-80 mx-auto space-y-3 bg-white p-4 sm:p-6 rounded-lg shadow-lg"
       >
         {/* ページインジケーター */}
         {currentPage !== 4 && (
