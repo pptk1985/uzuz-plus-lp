@@ -66,7 +66,6 @@ const ENDPOINT = process.env.NEXT_PUBLIC_GAS_ENDPOINT!;
 
 export default function RegistrationForm2() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [formData, setFormData] = useState<Partial<FormValues>>({});
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -615,7 +614,9 @@ export default function RegistrationForm2() {
         </div>
         <div className="text-center mb-4 bg-amber-50 p-3 sm:p-4 rounded">
           <div className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
-            電話：06-7167-2222
+            折り返しの電話
+            <br />
+            06-7167-2222
           </div>
         </div>
         <div className="flex justify-center">
