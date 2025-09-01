@@ -10,15 +10,28 @@ import { Link } from 'lucide-react';
 export default function Closing() {
   return (
     <div className="relative">
-      {/* 上半分：backgroundImageを表示 */}
+      {/* 上半分 */}
       <div
         id="closing"
-        className="h-[67dvh] bg-cover bg-center bg-slate-900 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
-        style={{
-          backgroundImage: `url(${BgImg.src})`,
-        }}
+        className="relative h-[67dvh] px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
       >
-        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
+        {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={BgImg}
+            alt="ヒーロー背景"
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* 背景色オーバーレイ */}
+        <div className="absolute inset-0 z-0 bg-blue-950/90 mix-blend-multiply" />
+
+        {/* コンテンツ */}
+        <div className="relative z-10 flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-start w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
@@ -51,7 +64,7 @@ export default function Closing() {
         </div>
       </div>
 
-      {/* 下半分：bg-logo-patternを表示 */}
+      {/* 下半分 */}
       <div className="h-[33dvh] bg-logo-pattern-small px-2 sm:px-20 pb-14 sm:pb-18">
         <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-4 justify-center items-center w-full h-full">

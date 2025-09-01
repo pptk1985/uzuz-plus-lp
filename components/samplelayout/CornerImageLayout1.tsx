@@ -58,7 +58,7 @@ export default function CornerImageLayout1() {
       <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <div className="grid grid-cols-1 gap-4 justify-center items-center w-full h-full">
           <div className="border h-full flex justify-center items-center">
-            四隅に画像を配置
+            四隅に画像を配置 ※背景画像最適化まだ
           </div>
         </div>
       </div>

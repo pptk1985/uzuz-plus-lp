@@ -41,7 +41,7 @@ interface Pricing1Props {
 }
 
 const Pricing1 = ({
-  heading = 'Pricing',
+  heading = 'Pricing ※背景画像最適化まだ',
   description = 'Check out our affordable pricing plans',
   plans = [
     {

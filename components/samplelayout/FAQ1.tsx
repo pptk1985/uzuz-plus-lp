@@ -55,7 +55,7 @@ export default function FAQ1() {
       >
         <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
           <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-6 drop-shadow">
-            よくあるご質問
+            よくあるご質問 ※背景画像最適化まだ
           </h2>
           <div className="col-span-2 bg-white/75 px-6 py-3 sm:mx-12 rounded shadow">
             <Accordion

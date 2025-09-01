@@ -16,15 +16,28 @@ export default function Nayami() {
   ];
   return (
     <div className="relative">
-      {/* 上半分：backgroundImageを表示 */}
+      {/* 上半分 */}
       <div
         id="nayami"
-        className="h-[45dvh] bg-cover bg-center bg-teal-900 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
-        style={{
-          backgroundImage: `url(${BgImg.src})`,
-        }}
+        className="relative h-[45dvh] px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
       >
-        <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
+        {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={BgImg}
+            alt="悩み解決背景"
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* 背景色オーバーレイ */}
+        <div className="absolute inset-0 z-0 bg-teal-700/70 mix-blend-multiply" />
+
+        {/* コンテンツ */}
+        <div className="relative z-10 flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
             <div className="col-span-2 h-full flex justify-center items-center">
               <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">

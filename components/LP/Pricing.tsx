@@ -9,19 +9,33 @@ import {
 } from '@/components/ui/dialog';
 
 import BgImg from '@/public/images/uzuzplus/IMG_2698.png';
+import Image from 'next/image';
 
 export default function Pricing() {
   return (
     <div className="relative">
-      {/* 上半分：backgroundImageを表示 */}
+      {/* 上半分 */}
       <div
         id="pricing"
-        className="h-[70dvh] bg-cover bg-center bg-emerald-700 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18"
-        style={{
-          backgroundImage: `url(${BgImg.src})`,
-        }}
+        className="relative h-[70dvh] px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
       >
-        <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto pb-4">
+        {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={BgImg}
+            alt="料金背景"
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* 背景色オーバーレイ */}
+        <div className="absolute inset-0 z-0 bg-emerald-500/50 mix-blend-multiply" />
+
+        {/* コンテンツ */}
+        <div className="relative z-10 flex flex-col justify-center items-center h-full max-w-4xl mx-auto pb-4">
           <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
             料金
           </h2>
@@ -82,7 +96,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      {/* 下半分：bg-logo-patternを表示 */}
+      {/* 下半分 */}
       <div className="h-[30dvh] bg-memphis px-2 sm:px-20 pb-14 sm:pb-18 pt-1.5">
         <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
           <div className="grid grid-cols-1 gap-1 justify-center items-center w-full h-full">

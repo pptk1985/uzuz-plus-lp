@@ -8,7 +8,7 @@ import BgImg from '@/public/images/uzuzlp/2273260509_1200x800.png';
 export default function GalleryLayout1() {
   const features = [
     {
-      title: 'ギャラリー',
+      title: 'ギャラリー ※背景画像最適化まだ',
       description: 'descriptiondescriptiondescription',
       skeleton: <SkeletonTwo />,
       className: 'dark:border-neutral-800',

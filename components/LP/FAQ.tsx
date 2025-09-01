@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/accordion';
 
 import BgImg from '@/public/images/uzuzlp/2058573251_1200x800.png';
+import Image from 'next/image';
 
 const faqData = [
   {
@@ -46,14 +47,27 @@ export default function FAQ() {
     <div className="bg-logo-pattern">
       <div
         id="faq"
-        // h-dvhでビューポート高さを100%にする
-        className="h-dvh bg-cover bg-center bg-teal-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18"
+        className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
         style={{
-          backgroundImage: `url(${BgImg.src})`,
           clipPath: 'circle(60% at 50% 56%)',
         }}
       >
-        <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
+        {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={BgImg}
+            alt="FAQ背景"
+            fill
+            priority
+            quality={85}
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        {/* 背景色オーバーレイ */}
+        <div className="absolute inset-0 z-0 bg-cyan-400/50 mix-blend-multiply" />
+        {/* コンテンツ */}
+        <div className="relative z-10 flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
           <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-6 drop-shadow">
             よくあるご質問
           </h2>

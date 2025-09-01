@@ -15,7 +15,7 @@ export default function TabLayout1() {
       <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <Tabs defaultValue="tab1" className="w-full">
           <TabsList>
-            <TabsTrigger value="tab1">タブ01</TabsTrigger>
+            <TabsTrigger value="tab1">タブ01 ※背景画像最適化まだ</TabsTrigger>
             <TabsTrigger value="tab2">タブ02</TabsTrigger>
             <TabsTrigger value="tab3">タブ03</TabsTrigger>
           </TabsList>

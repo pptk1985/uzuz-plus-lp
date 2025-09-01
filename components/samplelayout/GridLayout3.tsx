@@ -18,7 +18,7 @@ export default function GridLayout3() {
           containerClassName="col-span-1 sm:col-span-2 h-full bg-pink-800"
           className=""
         >
-          <div className="text-neutral-200">01</div>
+          <div className="text-neutral-200">01 ※背景画像最適化まだ</div>
         </WobbleCard>
         <WobbleCard containerClassName="col-span-1">
           <div className="text-neutral-200">02</div>

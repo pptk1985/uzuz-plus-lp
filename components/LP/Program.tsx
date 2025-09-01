@@ -3,6 +3,7 @@ import { Tabs } from '../ui/animatedtabs';
 
 import BgImg from '@/public/images/uzuzplus/mv02.webp';
 import { PenTool, LaptopMinimalCheck } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Program() {
   const tabs = [
@@ -97,13 +98,25 @@ export default function Program() {
   return (
     <div
       id="program"
-      // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-slate-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18"
-      style={{
-        backgroundImage: `url(${BgImg.src})`,
-      }}
+      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
     >
-      <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
+      {' '}
+      {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={BgImg}
+          alt="選ばれる理由背景"
+          fill
+          priority
+          quality={85}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+      {/* 背景色オーバーレイ */}
+      <div className="absolute inset-0 z-0 bg-blue-500/50 mix-blend-multiply" />
+      {/* コンテンツ */}
+      <div className="relative z-10 flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
         <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
           支援プログラムの紹介
         </h2>

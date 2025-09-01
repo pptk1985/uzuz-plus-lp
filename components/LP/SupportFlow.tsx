@@ -48,11 +48,7 @@ export default function SupportFlow() {
   return (
     <div
       id="supportflow"
-      // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-blue-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18 relative"
-      style={{
-        backgroundImage: `url(${BgImg.src})`,
-      }}
+      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
     >
       {/* 左上の角の画像 */}
       <div className="absolute top-8 left-2 w-26 h-26 sm:w-42 sm:h-42 -rotate-12 z-10">
@@ -65,7 +61,23 @@ export default function SupportFlow() {
         />
       </div>
 
-      <div className="flex justify-center items-center h-full max-w-4xl mx-4 sm:mx-auto">
+      {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={BgImg}
+          alt="ご利用の流れ背景"
+          fill
+          priority
+          quality={85}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+      {/* 背景色オーバーレイ */}
+      <div className="absolute inset-0 z-0 bg-blue-500/90 mix-blend-multiply" />
+
+      {/* コンテンツ */}
+      <div className="relative z-10 flex justify-center items-center h-full max-w-4xl mx-4 sm:mx-auto">
         <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
           <div className="col-span-2 h-full flex justify-center items-center">
             <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold drop-shadow">

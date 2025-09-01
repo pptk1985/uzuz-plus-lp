@@ -15,7 +15,7 @@ export default function GridLayout2() {
       <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
         <div className="grid grid-cols-2 gap-4 justify-center items-center w-full h-full">
           <div className="col-span-2 border h-full flex justify-center items-center">
-            01
+            01 ※背景画像最適化まだ
           </div>
           <div className="border h-full flex justify-center items-center">
             02

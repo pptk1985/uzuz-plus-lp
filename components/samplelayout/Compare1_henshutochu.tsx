@@ -26,7 +26,9 @@ const Compare1 = () => {
         backgroundImage: `url(${BgImg.src})`,
       }}
     >
-      <h2 className="mb-4 text-center text-4xl font-semibold">Compare Us</h2>
+      <h2 className="mb-4 text-center text-4xl font-semibold">
+        Compare Us ※背景画像最適化まだ
+      </h2>
       <p className="mb-8 text-center text-muted-foreground">
         A modern framework for building websites that is better than the
         competition.

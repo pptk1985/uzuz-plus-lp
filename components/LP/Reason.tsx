@@ -5,22 +5,37 @@ import { LayoutGrid } from '../ui/layout-grid';
 import { MousePointerClick } from 'lucide-react';
 
 import BgImg from '@/public/images/uzuzlp/2288443741_1200x800.png';
+import Image from 'next/image';
 
 export default function Reason() {
   return (
     <div
       id="reason"
-      // h-dvhでビューポート高さを100%にする
-      className="h-dvh bg-cover bg-center bg-cyan-600 bg-blend-overlay px-2 sm:px-20 pt-14 sm:pt-18 pb-14 sm:pb-18"
-      style={{
-        backgroundImage: `url(${BgImg.src})`,
-      }}
+      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
     >
-      <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
-        UZUZ Plus+が選ばれる５つの理由
-      </h2>
-      <div className="flex justify-center items-start h-full max-w-4xl mx-auto">
-        <LayoutGrid cards={cards} />
+      {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={BgImg}
+          alt="選ばれる理由背景"
+          fill
+          priority
+          quality={85}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+      </div>
+      {/* 背景色オーバーレイ */}
+      <div className="absolute inset-0 z-0 bg-blue-500/50 mix-blend-multiply" />
+
+      {/* コンテンツ */}
+      <div className="relative z-10 h-full max-w-4xl mx-auto">
+        <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold">
+          UZUZ Plus+が選ばれる５つの理由
+        </h2>
+        <div className="flex justify-center items-start h-full max-w-4xl mx-auto">
+          <LayoutGrid cards={cards} />
+        </div>
       </div>
     </div>
   );

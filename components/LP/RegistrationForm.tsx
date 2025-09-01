@@ -18,6 +18,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 // フォームのスキーマ定義
 const formSchema = z.object({
@@ -120,22 +127,18 @@ export default function RegistrationForm2() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-2/3 min-w-80 mx-auto space-y-3 bg-white p-4 rounded-lg shadow"
+        className="w-2/3 min-w-80 mx-auto space-y-6 bg-white p-6 rounded-lg shadow"
       >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                お名前（漢字）<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                お名前 (漢字)<span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
-                <Input
-                  {...field}
-                  autoComplete="name"
-                  placeholder="例：田中太郎"
-                />
+                <Input {...field} autoComplete="name" placeholder="山田太郎" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -147,14 +150,15 @@ export default function RegistrationForm2() {
           name="furigana"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                お名前（ふりがな）<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                お名前 (ふりがな)
+                <span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
                 <Input
                   {...field}
                   autoComplete="off"
-                  placeholder="例：たなかたろう"
+                  placeholder="やまだたろう"
                 />
               </FormControl>
               <FormMessage />
@@ -167,8 +171,8 @@ export default function RegistrationForm2() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                メールアドレス<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                メールアドレス<span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
                 <Input
@@ -176,7 +180,7 @@ export default function RegistrationForm2() {
                   type="email"
                   autoComplete="email"
                   inputMode="email"
-                  placeholder="例：example@email.com"
+                  placeholder="example@email.com"
                 />
               </FormControl>
               <FormMessage />
@@ -189,8 +193,8 @@ export default function RegistrationForm2() {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                電話番号<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                電話番号<span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
                 <Input
@@ -198,10 +202,9 @@ export default function RegistrationForm2() {
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
-                  placeholder="例：09012345678"
+                  placeholder="ハイフンなしの10桁または11桁の数字"
                 />
               </FormControl>
-              <FormDescription>ハイフンなし</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -212,14 +215,14 @@ export default function RegistrationForm2() {
           name="ageGroup"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                年代<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                年代<span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap"
                 >
                   {[
                     { value: '10-20代', label: '10~20代' },
@@ -230,12 +233,14 @@ export default function RegistrationForm2() {
                   ].map((option) => (
                     <FormItem
                       key={option.value}
-                      className="flex items-center gap-2 space-y-0"
+                      className="flex items-center gap-1 space-y-0"
                     >
                       <FormControl>
                         <RadioGroupItem value={option.value} />
                       </FormControl>
-                      <FormLabel>{option.label}</FormLabel>
+                      <FormLabel className="font-normal">
+                        {option.label}
+                      </FormLabel>
                     </FormItem>
                   ))}
                 </RadioGroup>
@@ -250,14 +255,14 @@ export default function RegistrationForm2() {
           name="meetingMethod"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                面談方法<span className="text-red-500">※</span>
+              <FormLabel className="text-base">
+                面談方法<span className="text-rose-400 font-bold">※</span>
               </FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap"
                 >
                   {[
                     { value: 'online', label: 'オンライン' },
@@ -266,12 +271,14 @@ export default function RegistrationForm2() {
                   ].map((option) => (
                     <FormItem
                       key={option.value}
-                      className="flex items-center gap-2 space-y-0"
+                      className="flex items-center gap-1 space-y-0"
                     >
                       <FormControl>
                         <RadioGroupItem value={option.value} />
                       </FormControl>
-                      <FormLabel className="!mt-0">{option.label}</FormLabel>
+                      <FormLabel className="font-normal">
+                        {option.label}
+                      </FormLabel>
                     </FormItem>
                   ))}
                 </RadioGroup>
@@ -286,13 +293,12 @@ export default function RegistrationForm2() {
           name="curriculum"
           render={({ field }) => (
             <FormItem>
-              <div className="mb-4">
-                <FormLabel>
-                  興味のあるカリキュラム<span className="text-red-500">※</span>
-                </FormLabel>
-                <FormDescription>1つ以上選択してください</FormDescription>
-              </div>
-              <div className="flex flex-wrap gap-3">
+              <FormLabel className="text-base">
+                興味のあるカリキュラム
+                <span className="text-rose-400 font-bold">※</span>
+              </FormLabel>
+              <FormDescription>1つ以上選択してください</FormDescription>
+              <div className="flex flex-wrap gap-x-4 gap-y-2.5">
                 {[
                   { value: 'job-support', label: '就職サポート' },
                   { value: 'it-skills', label: 'ITスキル' },
@@ -304,7 +310,7 @@ export default function RegistrationForm2() {
                 ].map((option) => (
                   <FormItem
                     key={option.value}
-                    className="flex items-center gap-2 space-y-0"
+                    className="flex items-center gap-1 space-y-0"
                   >
                     <FormControl>
                       <Checkbox
@@ -322,7 +328,9 @@ export default function RegistrationForm2() {
                         }}
                       />
                     </FormControl>
-                    <FormLabel>{option.label}</FormLabel>
+                    <FormLabel className="font-normal">
+                      {option.label}
+                    </FormLabel>
                   </FormItem>
                 ))}
               </div>
@@ -336,16 +344,19 @@ export default function RegistrationForm2() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>事前に伝えたいこと</FormLabel>
+              <FormLabel className="text-base">
+                事前に伝えたいこと (任意)
+              </FormLabel>
+              <FormDescription>1000文字まで</FormDescription>
               <FormControl>
                 <Textarea
                   {...field}
                   rows={4}
-                  placeholder="ご質問やご要望など、お気軽にお書きください（任意）"
+                  placeholder="ご質問やご要望など、お気軽にお書きください。
+                  例：ITスキルを身に着けて再就職することについて相談したい"
                   className="resize-none"
                 />
               </FormControl>
-              <FormDescription>1000文字まで（任意）</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -356,17 +367,62 @@ export default function RegistrationForm2() {
           disabled={form.formState.isSubmitting}
           className="w-full"
         >
-          {form.formState.isSubmitting ? '送信中…' : '登録する'}
+          {form.formState.isSubmitting ? '送信中…' : '申し込む'}
         </Button>
 
         {form.formState.isSubmitSuccessful && (
-          <p className="text-green-700 text-center py-4 bg-green-50 rounded">
-            ご登録ありがとうございました！
+          <div className="p-4 bg-teal-50 rounded">
+            <div>
+              THANK YOU
+              <br />
+              送信が完了しました！
+            </div>
+            お申込ありがとうございます。
             <br />
-            後日、担当者よりご連絡いたします。
-          </p>
+            ３営業日以内に担当者より折り返しご連絡させていただきます。
+            <div>電話番号電話番号電話番号電話番号</div>
+          </div>
         )}
       </form>
+      下記の「個人情報の取り扱いについて」にご同意の上、ご送信ください。
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="outline" className="text-sm sm:text-base">
+            個人情報の取り扱いについて
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-xl">
+          <DialogHeader>
+            <DialogTitle>個人情報の取り扱いについて</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-2 sm:space-y-4 text-xs sm:text-sm">
+            <ol>
+              <li>
+                お送りいただく個人情報は、お問い合わせいただいた内容に回答するために利用します。
+              </li>
+              <li>当個人情報を第三者に提供することはありません。</li>
+              <li>
+                当個人情報の取扱いを委託することがあります。委託にあたっては、委託先における個人情報の安全管理が図られるよう、委託先に対する必要かつ適切な監督を行います。
+              </li>
+              <li>
+                個人情報のご提供は任意です。ただし、回答に必要な情報をご提供いただかない場合、回答に支障が生じる可能性があります。
+              </li>
+              <li>
+                当個人情報の利用目的の通知、開示、内容の訂正・追加または削除、利用の停止・消去および第三者への提供の停止（「開示等」といいます。）を受け付けております。開示等の求めは、以下の「個人情報苦情及び相談窓口」で受け付けます。
+              </li>
+              <li>
+                当ホームページではクッキー等を用いておりますが、これによる個人情報の取得、利用は行っておりません。
+              </li>
+            </ol>
+            <div>個人情報保護管理者 株式会社UZUZ Plus 代表取締役 岡本 啓毅</div>
+            <div>
+              個人情報苦情及び相談窓口 株式会社UZUZ 管理部 TEL: 03-5333-0802
+              （受付時間 9時～18時
+              土日祝日除く／営業のお電話はお断りいたします）
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Form>
   );
 }

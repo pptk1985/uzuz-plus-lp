@@ -16,7 +16,7 @@ export default function GalleryLayout2() {
       }}
     >
       <div className="flex justify-center items-center h-full max-w-4xl mx-auto">
-        <LayoutGrid cards={cards} />
+        <LayoutGrid cards={cards} /> ※背景画像最適化まだ
       </div>
     </div>
   );

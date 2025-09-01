@@ -68,7 +68,7 @@ export default function TabLayout1() {
     >
       <div className="flex flex-col justify-center items-center h-full max-w-4xl mx-auto">
         <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold mb-2 sm:mb-4">
-          タイトルタイトル
+          タイトルタイトル ※背景画像最適化まだ
         </h2>
         <div className="h-4/5 [perspective:1000px] relative flex flex-col mx-auto w-full items-center justify-center">
           <Tabs tabs={tabs} />
