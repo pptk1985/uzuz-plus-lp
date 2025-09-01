@@ -98,7 +98,7 @@ export default function Program() {
   return (
     <div
       id="program"
-      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
+      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden pb-16"
     >
       {' '}
       {/* 背景画像を最適化するために普通の画像（<Image>）として読み込む */}

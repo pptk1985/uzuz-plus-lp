@@ -48,7 +48,7 @@ export default function SupportFlow() {
   return (
     <div
       id="supportflow"
-      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden"
+      className="relative h-dvh px-2 sm:px-20 pt-14 sm:pt-18 overflow-hidden pb-16"
     >
       {/* 左上の角の画像 */}
       <div className="absolute top-8 left-2 w-26 h-26 sm:w-42 sm:h-42 -rotate-12 z-10">
@@ -74,11 +74,11 @@ export default function SupportFlow() {
         />
       </div>
       {/* 背景色オーバーレイ */}
-      <div className="absolute inset-0 z-0 bg-blue-500/90 mix-blend-multiply" />
+      <div className="absolute inset-0 z-0 bg-blue-500/80 mix-blend-multiply" />
 
       {/* コンテンツ */}
       <div className="relative z-10 flex justify-center items-center h-full max-w-4xl mx-4 sm:mx-auto">
-        <div className="grid grid-cols-3 gap-3 sm:gap-6 justify-center items-center w-full h-full">
+        <div className="grid grid-cols-3 gap-x-3 sm:gap-6 justify-center items-center w-full h-full">
           <div className="col-span-2 h-full flex justify-center items-center">
             <h2 className="text-center text-white text-3xl sm:text-6xl font-extrabold drop-shadow">
               ご利用の流れ

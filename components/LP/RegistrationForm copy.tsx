@@ -51,7 +51,7 @@ const formSchema = z.object({
     .min(1, '必須です')
     .refine(
       (value) => /^[0-9]{10,11}$/.test(value),
-      'ハイフン無しの10桁または11桁の数字を入力してください'
+      'ハイフンなしで10桁または11桁の数字を入力してください'
     ),
   ageGroup: z.string().min(1, '必須です'),
   meetingMethod: z.string().min(1, '必須です'),
@@ -166,7 +166,7 @@ export default function RegistrationForm2() {
 
     // 成功とみなす
     form.reset();
-    setCurrentPage(4);
+    setCurrentPage(1);
   };
 
   // ページ1
@@ -179,9 +179,9 @@ export default function RegistrationForm2() {
     };
 
     return (
-      <div className="space-y-3">
-        <div className="text-center mb-4 bg-slate-100 p-3 rounded">
-          <h3 className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
+      <div className="space-y-4">
+        <div className="text-center mb-4 bg-slate-100 p-4 rounded">
+          <h3 className="text-2xl font-bold text-slate-900 font-zen-maru">
             お申し込みフォーム
           </h3>
         </div>
@@ -276,7 +276,7 @@ export default function RegistrationForm2() {
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
-                  placeholder="ハイフン無しの10桁または11桁の数字"
+                  placeholder="ハイフンなしの10桁または11桁の数字"
                 />
               </FormControl>
               {page1Errors.phone && (
@@ -309,7 +309,7 @@ export default function RegistrationForm2() {
     };
 
     return (
-      <div className="space-y-3">
+      <div className="space-y-4">
         <FormField
           control={form.control}
           name="ageGroup"
@@ -354,7 +354,7 @@ export default function RegistrationForm2() {
           )}
         />
 
-        <Separator className="my-1" />
+        <Separator className="my-2" />
 
         <FormField
           control={form.control}
@@ -399,7 +399,7 @@ export default function RegistrationForm2() {
           )}
         />
 
-        <Separator className="my-1" />
+        <Separator className="my-2" />
 
         <FormField
           control={form.control}
@@ -411,8 +411,8 @@ export default function RegistrationForm2() {
                 <Badge variant="destructive" className="px-1 py-px">
                   必須
                 </Badge>
-                <FormDescription>複数選択可</FormDescription>
               </FormLabel>
+              <FormDescription>複数選択可</FormDescription>
               {[
                 { value: '就職サポート', label: '就職サポート' },
                 { value: 'ITスキル', label: 'ITスキル' },
@@ -476,7 +476,7 @@ export default function RegistrationForm2() {
     };
 
     return (
-      <div className="space-y-3">
+      <div className="space-y-4">
         <FormField
           control={form.control}
           name="message"
@@ -487,12 +487,12 @@ export default function RegistrationForm2() {
                 <Badge variant="secondary" className="px-1.5 py-px">
                   任意
                 </Badge>
-                <FormDescription>1000文字まで</FormDescription>
               </FormLabel>
+              <FormDescription>1000文字まで</FormDescription>
               <FormControl>
                 <Textarea
                   {...field}
-                  rows={4}
+                  rows={5}
                   placeholder="ご質問やご要望など、お気軽にお書きください。
                   例：ITスキルを身に着けて再就職することについて相談したい"
                   className="resize-none text-sm placeholder:text-slate-400 placeholder:font-normal"
@@ -505,12 +505,14 @@ export default function RegistrationForm2() {
           )}
         />
 
+        <Separator className="my-2" />
+
         {/* 入力内容の確認表示 */}
-        <div className="bg-slate-50 px-4 py-3 rounded space-y-2">
+        <div className="bg-slate-50 p-4 rounded space-y-2">
           <h3 className="font-bold text-center font-zen-maru">
             入力内容の確認
           </h3>
-          <div className="text-sm space-y-0.5">
+          <div className="text-sm space-y-1">
             <div>
               <span className="font-medium">お名前：</span>
               {form.getValues('name')}
@@ -542,7 +544,7 @@ export default function RegistrationForm2() {
           </div>
         </div>
 
-        <div className="w-full grid grid-cols-[1fr_2fr] gap-4 mb-2">
+        <div className="w-full grid grid-cols-[1fr_2fr] gap-4">
           <Button type="button" variant="outline" onClick={prevPage}>
             戻る
           </Button>
@@ -566,7 +568,7 @@ export default function RegistrationForm2() {
               <DialogHeader>
                 <DialogTitle>個人情報の取り扱いについて</DialogTitle>
               </DialogHeader>
-              <div className="space-y-3 text-xs sm:text-sm">
+              <div className="space-y-2 sm:space-y-4 text-xs sm:text-sm">
                 <ol className="list-decimal list-inside">
                   <li>
                     お送りいただく個人情報は、お問い合わせいただいた内容に回答するために利用します。
@@ -601,65 +603,50 @@ export default function RegistrationForm2() {
     );
   };
 
-  // ページ4（サンクス）
-  const renderPage4 = () => {
-    return (
-      <div className="space-y-3">
-        <div className="text-center mb-4 bg-slate-100 p-3 rounded">
-          <h3 className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
-            お申込ありがとうございます。送信が完了しました。
-          </h3>
-        </div>
-        <div className="text-center mb-4 border p-3 sm:p-4 rounded">
-          ３営業日以内に担当者より折り返しご連絡させていただきます。
-        </div>
-        <div className="text-center mb-4 bg-amber-50 p-3 sm:p-4 rounded">
-          <div className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
-            電話：06-7167-2222
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <Button type="button" onClick={() => setCurrentPage(1)}>
-            お申し込みフォームのトップへ戻る
-          </Button>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-2/3 min-w-80 mx-auto space-y-3 bg-white p-4 sm:p-6 rounded-lg shadow-lg"
+        className="w-2/3 min-w-80 mx-auto space-y-4 bg-white p-6 rounded-lg shadow-lg"
       >
         {/* ページインジケーター */}
-        {currentPage !== 4 && (
-          <div className="flex justify-center mb-3">
-            <div className="flex space-x-2">
-              {[1, 2, 3].map((page) => (
-                <div
-                  key={page}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                    page === currentPage
-                      ? 'bg-blue-400 text-white'
-                      : page < currentPage
-                      ? 'bg-orange-300 text-white'
-                      : 'bg-slate-200 text-slate-600'
-                  }`}
-                >
-                  {page < currentPage ? '✓' : page}
-                </div>
-              ))}
-            </div>
+        <div className="flex justify-center mb-4">
+          <div className="flex space-x-2">
+            {[1, 2, 3].map((page) => (
+              <div
+                key={page}
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                  page === currentPage
+                    ? 'bg-blue-400 text-white'
+                    : page < currentPage
+                    ? 'bg-orange-300 text-white'
+                    : 'bg-slate-200 text-slate-600'
+                }`}
+              >
+                {page < currentPage ? '✓' : page}
+              </div>
+            ))}
           </div>
-        )}
+        </div>
 
         {/* ページコンテンツ */}
         {currentPage === 1 && renderPage1()}
         {currentPage === 2 && renderPage2()}
         {currentPage === 3 && renderPage3()}
-        {currentPage === 4 && renderPage4()}
+
+        {form.formState.isSubmitSuccessful && (
+          <div className="p-4 bg-teal-50 rounded">
+            <div>
+              THANK YOU
+              <br />
+              送信が完了しました！
+            </div>
+            お申込ありがとうございます。
+            <br />
+            ３営業日以内に担当者より折り返しご連絡させていただきます。
+            <div>電話番号電話番号電話番号電話番号</div>
+          </div>
+        )}
       </form>
     </Form>
   );
