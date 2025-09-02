@@ -137,7 +137,7 @@ export default function RegistrationForm2() {
         const url = new URL(referer);
         safeReferer = url.hostname;
       }
-    } catch (error) {
+    } catch {
       // URL解析に失敗した場合は空文字
       safeReferer = '';
     }
@@ -161,7 +161,7 @@ export default function RegistrationForm2() {
           safeUserAgent = 'unknown';
         }
       }
-    } catch (error) {
+    } catch {
       safeUserAgent = 'unknown';
     }
 
@@ -185,7 +185,7 @@ export default function RegistrationForm2() {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
       body: payload.toString(),
-    }).catch((err) => {
+    }).catch(() => {
       // コンソールログから個人情報を除去
       console.error('送信に失敗しました（ネットワークエラー）');
       return null as Response | null;
