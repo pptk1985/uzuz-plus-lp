@@ -370,9 +370,11 @@ export default function RegistrationForm2() {
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
+                  className="grid grid-cols-2"
                 >
                   {[
-                    { value: '10-20代', label: '10-20代' },
+                    { value: '10代', label: '10代' },
+                    { value: '20代', label: '20代' },
                     { value: '30代', label: '30代' },
                     { value: '40代', label: '40代' },
                     { value: '50代', label: '50代' },
@@ -565,11 +567,11 @@ export default function RegistrationForm2() {
               {form.getValues('furigana')}
             </div>
             <div>
-              <span className="font-medium">メールアドレス：</span>
+              <span className="font-medium">メール：</span>
               {form.getValues('email')}
             </div>
             <div>
-              <span className="font-medium">電話番号：</span>
+              <span className="font-medium">電話：</span>
               {form.getValues('phone')}
             </div>
             <div>
@@ -603,7 +605,10 @@ export default function RegistrationForm2() {
         <div className="flex justify-center">
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="ghost" className="text-sm text-slate-500">
+              <Button
+                variant="ghost"
+                className="text-sm text-slate-600 h-6 underline underline-offset-4"
+              >
                 個人情報の取り扱いについて ↗
               </Button>
             </DialogTrigger>
