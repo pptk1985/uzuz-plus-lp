@@ -40,20 +40,20 @@ export default function Registration() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 justify-center items-center w-full h-full">
             <div className="h-full hidden sm:flex flex-col justify-center items-center space-y-3">
-              <div className="relative text-slate-900 font-bold bg-white p-4 rounded-2xl font-zen-maru w-full">
+              <div className="relative text-slate-900 font-bold bg-white p-6 rounded-2xl font-zen-maru w-full">
                 <div className="absolute -top-2.5 -left-2.5 z-10 bg-blue-500 w-8 aspect-square rounded-full flex items-center justify-center font-bold text-xl  font-dancing-script text-white shadow">
                   1
                 </div>
                 事業所見学で雰囲気をご確認いただけます。質問や疑問なども、お気軽にご相談ください。
               </div>
-              <div className="relative text-slate-900 font-bold bg-white p-4 rounded-2xl font-zen-maru w-full">
+              <div className="relative text-slate-900 font-bold bg-white p-6 rounded-2xl font-zen-maru w-full">
                 <div className="absolute -top-2.5 -left-2.5 z-10 bg-blue-500 w-8 aspect-square rounded-full flex items-center justify-center font-bold text-xl  font-dancing-script text-white shadow">
                   2
                 </div>
                 実際のプログラムに参加し、支援内容が自分に合っているか体験できます。短時間の参加も可能です。
               </div>
               {/* ITに強い、一番就職につながる就労移行支援を大阪から。 */}
-              <div className="grid grid-cols-2 justify-center items-center text-slate-900 font-bold bg-white px-4 py-3 rounded-2xl font-zen-maru w-full">
+              <div className="grid grid-cols-2 justify-center items-center text-slate-900 font-bold bg-white p-6 rounded-2xl font-zen-maru w-full">
                 <div>
                   場所：
                   <br />

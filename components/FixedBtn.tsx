@@ -15,7 +15,7 @@ const FixedBtn: FC<Props> = ({ setIndex }) => {
   };
 
   return (
-    <div className="fixed bottom-3 left-4 right-4 sm:left-1/4 sm:right-1/4 z-50">
+    <div className="fixed bottom-3 left-4 right-4 sm:left-1/5 sm:right-1/5 z-50">
       <button
         onClick={handleClick}
         className="w-full inline-flex items-center justify-center p-2 bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"

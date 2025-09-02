@@ -128,7 +128,42 @@ export default function RegistrationForm2() {
   };
 
   const onSubmit = async (values: FormValues) => {
-    const referer = document.referrer || window.location.href || '';
+    // refererを安全に処理
+    let safeReferer = '';
+    try {
+      const referer = document.referrer;
+      if (referer) {
+        // ドメインのみを抽出（パスやクエリパラメータは除外）
+        const url = new URL(referer);
+        safeReferer = url.hostname;
+      }
+    } catch (error) {
+      // URL解析に失敗した場合は空文字
+      safeReferer = '';
+    }
+
+    // User-Agentも安全に処理
+    let safeUserAgent = '';
+    try {
+      const userAgent = navigator.userAgent;
+      if (userAgent) {
+        // ブラウザとOSの基本情報のみを抽出
+        const browserInfo = userAgent.match(
+          /(chrome|firefox|safari|edge|opera)\/?\s*(\d+)/i
+        );
+        const osInfo = userAgent.match(/(windows|mac|linux|android|ios)/i);
+
+        if (browserInfo && osInfo) {
+          safeUserAgent = `${browserInfo[1]} ${browserInfo[2]}, ${osInfo[1]}`;
+        } else if (browserInfo) {
+          safeUserAgent = `${browserInfo[1]} ${browserInfo[2]}`;
+        } else {
+          safeUserAgent = 'unknown';
+        }
+      }
+    } catch (error) {
+      safeUserAgent = 'unknown';
+    }
 
     const payload = new URLSearchParams({
       name: values.name,
@@ -139,8 +174,8 @@ export default function RegistrationForm2() {
       meetingMethod: values.meetingMethod,
       curriculum: values.curriculum.join(', '),
       message: values.message || '',
-      ua: navigator.userAgent,
-      referer,
+      ua: safeUserAgent,
+      referer: safeReferer,
     });
 
     // ① ネットワーク例外（CORS/オフライン等）を捕捉
