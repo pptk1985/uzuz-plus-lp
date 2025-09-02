@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { useState } from 'react';
+import Image from 'next/image';
+import Map from '@/public/images/uzuzplus/2261336337-pin.png';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -28,6 +30,14 @@ import {
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 // フォームのスキーマ定義
 const formSchema = z.object({
@@ -179,7 +189,7 @@ export default function RegistrationForm2() {
 
     return (
       <div className="space-y-3">
-        <div className="text-center mb-4 bg-slate-100 p-3 rounded">
+        <div className="text-center mb-3 sm:mb-4 bg-slate-100 p-2 sm:p-3 rounded">
           <h3 className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
             お申し込みフォーム
           </h3>
@@ -557,7 +567,7 @@ export default function RegistrationForm2() {
         <div className="flex justify-center">
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="ghost" className="text-sm text-slate-400">
+              <Button variant="ghost" className="text-sm text-slate-500">
                 個人情報の取り扱いについて ↗
               </Button>
             </DialogTrigger>
@@ -613,7 +623,7 @@ export default function RegistrationForm2() {
           ３営業日以内に担当者より折り返しご連絡させていただきます。
         </div>
         <div className="text-center mb-4 bg-amber-50 p-3 sm:p-4 rounded">
-          <div className="text-lg sm:text-2xl font-bold text-slate-900 font-zen-maru">
+          <div className="text-base sm:text-xl font-bold text-slate-900">
             折り返しの電話
             <br />
             06-7167-2222
@@ -638,10 +648,46 @@ export default function RegistrationForm2() {
         {currentPage !== 4 && (
           <div className="flex justify-center mb-3">
             <div className="flex space-x-2">
+              <div className="block sm:hidden">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button variant="outline" className="text-xs h-8 mb-2">
+                      お申し込みいただくと？
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent>
+                    <SheetHeader>
+                      <SheetTitle className="my-4">
+                        お申し込みいただくと
+                      </SheetTitle>
+                      <SheetDescription className="text-slate-900 font-zen-maru text-left space-y-3 flex flex-col">
+                        <span className="block">
+                          １．事業所見学で雰囲気をご確認いただけます。質問や疑問なども、お気軽にご相談ください。
+                        </span>
+                        <span className="block">
+                          ２．実際のプログラムに参加し、支援内容が自分に合っているか体験できます。短時間の参加も可能です。
+                        </span>
+                        <span className="block">
+                          場所：大阪府大阪市北区南扇町 1番5号 UAKビル2F
+                        </span>
+                        <span className="block">
+                          <Image
+                            src={Map}
+                            alt="20代の就職を徹底サポート！ウズウズ｜株式会社UZUZ"
+                            width={150}
+                            height={150}
+                            className="mx-auto opacity-90"
+                          />
+                        </span>
+                      </SheetDescription>
+                    </SheetHeader>
+                  </SheetContent>
+                </Sheet>
+              </div>
               {[1, 2, 3].map((page) => (
                 <div
                   key={page}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                  className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                     page === currentPage
                       ? 'bg-blue-400 text-white'
                       : page < currentPage

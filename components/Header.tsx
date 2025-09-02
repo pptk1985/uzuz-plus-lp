@@ -28,10 +28,10 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
   }, []);
 
   const navItems: NavItem[] = [
-    { name: 'ああああ', href: '#feedback', index: 3 },
-    { name: 'いいい', href: '#osusume1', index: 4 },
-    { name: 'ううう', href: '#price', index: 7 },
-    { name: 'えええ', href: '#flow', index: 8 },
+    { name: 'おすすめの理由', href: '#reason', index: 3 },
+    { name: 'プログラム内容', href: '#program', index: 4 },
+    { name: 'ご利用の流れ', href: '#supportflow', index: 5 },
+    { name: '料金', href: '#pricing', index: 6 },
   ];
 
   const handleMenuToggle = (): void => {
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ setIndex }) => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(item, e)}
-                className="text-white hover:text-zinc-900 px-3 py-2 rounded-md font-bold transition-colors duration-200 drop-shadow"
+                className="text-white hover:text-orange-300 px-3 py-2 rounded-md font-bold transition-colors duration-200 drop-shadow"
                 aria-label={item.name}
               >
                 {item.name}
