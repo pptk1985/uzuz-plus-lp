@@ -186,7 +186,8 @@ export default function RegistrationForm2() {
       },
       body: payload.toString(),
     }).catch((err) => {
-      console.error('fetch failed (network/CORS/etc)', err);
+      // コンソールログから個人情報を除去
+      console.error('送信に失敗しました（ネットワークエラー）');
       return null as Response | null;
     });
     if (!res) return; // ネットワーク例外時は早期リターン
